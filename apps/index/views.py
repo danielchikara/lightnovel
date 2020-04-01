@@ -26,10 +26,10 @@ class GroupViewSet(viewsets.ModelViewSet):
 # Create your views here.
 
 
-class RolUser(viewsets.ModelViewSet):
-    queryset = RolUser.objects.all()
-    serializer_class = RolSerializer
-    permission_classes = [permissions.IsAuthenticated]
+#class RolUser(viewsets.ModelViewSet):
+ #   queryset = RolUser.objects.all()
+  #  serializer_class = RolSerializer
+   # permission_classes = [permissions.IsAuthenticated]
 
 
 class IndexView(TemplateView):

@@ -6,7 +6,7 @@ from apps.index.models import *
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'groups']
+        fields = ['url', 'username', 'email', 'groups', 'password']
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
@@ -14,7 +14,11 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ['url', 'name']
 
-class RolSerializer (serializers.HyperlinkedModelSerializer):
-    class Meta:
-        models = RolUser 
-        fields =['url', 'rol_user_name']
+
+
+#class RolSerializer (serializers.HyperlinkedModelSerializer):
+ #   class Meta:
+  #      models = RolUser 
+        #fields =['url', 'rol_user_name']
+
+        

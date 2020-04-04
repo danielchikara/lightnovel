@@ -13,7 +13,14 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    @action(methods=['get'], detail=False)
+    def newest(self, request):
+        newest = self.get_queryset().order_by('created').last()
+        serializer = self.get_serializer_class()(newest)
+        return Response(serializer.data)
 
 
 class GroupViewSet(viewsets.ModelViewSet):

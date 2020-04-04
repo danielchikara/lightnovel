@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'light_novel.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dbgrumq0k0tqmv',
+        'USER': 'jayplsikilqjlw',
+        'PASSWORD': '7b838286e8f82dde360a56e99e6cf3be8645a66e09cb12f3be0c7049d87dd114',
+        'HOST': 'ec2-52-86-33-50.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 

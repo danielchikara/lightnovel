@@ -1,0 +1,67 @@
+{% extends 'layouts/index/base.html' %}
+{% load static %}
+{% block content %}
+ 
+<div class="Container">
+</br><h2>Registro</h2>
+
+<body>
+
+<form action="" method="post">
+    <table>
+        <tr>
+            <div >
+                <th>
+                    <label for>Nombre de Usuario: </label>
+                </th>
+                <th>
+                    <input type="text" placeholder="Name" class="" id="username" name="username">
+                </th>
+            </div>
+        </tr>
+
+        <tr>
+            <div>
+                <th>
+                    <label for>Correo Electronico: </label>
+                </th>
+                <th>
+                    <input type="text" placeholder="Email" class="" id="email" name="email">
+                </th>
+            </div>
+        </tr>
+
+        <tr>
+            <div>
+                <th>
+                    <label for>Genero: </label>
+                </th>
+                <th>
+                    <input type="text" placeholder="Gender" class="" id="gender" name="gender">
+                </th>
+            </div>
+        </tr>
+
+        <tr>
+            <div>
+                <th>
+                    <label for>Contraseña </label>
+                </th>
+                <th>
+                    <input type="password" placeholder="Password" class="" id="password" name="password">
+                </th>
+            </div>
+        </tr>
+    
+        <tr align="center">
+            <button class="btn btn-primary" type="submit">Registrar</button>
+        </tr>
+
+    </table>
+</form>
+
+</body>
+
+</div>
+
+{% endblock content %}

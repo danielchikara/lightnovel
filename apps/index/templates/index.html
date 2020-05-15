@@ -1,11 +1,25 @@
 {% extends 'layouts/index/base.html' %}
 {% load static %}
 {% block content %}
-aqui va contenido html  de index  
 
-
-el index es la pagina de inicio de un proyecto en esta parte lo que ve el cliente 
-
-
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Light Novel F.Y.</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Registro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>    
+      </ul>
+    </div>  
+  </nav>
 
 {% endblock content %}

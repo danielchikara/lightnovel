@@ -2,73 +2,86 @@
 {% load static %}
 {% block content %}
 
-<body>
-
-<div class="container-fluid p-3 my-3 bg-dark text-white mt-5 tamanocontainerpri redondeadoxd"></br>
-    <center><h1>Registro.</h1></center><br>
-
-    <div class="container bg-dark text-white mt-2" >
-        
-          <form action="index.php" method="post" name="index"> 
-            <table class="table table-borderless text-white tamanoxdxd">
-                <tr>
-                  <div class="form-group">
-                    <th>
-                      <label for="name">Nombre de Usuario: </label>
-                    </th>
-                    <th>
-                      <input type="name" class="form-control" placeholder="Nombre de Usuario" name="name">
-                    </th>
+<div class="register-box">
+  <div class="card">
+      <div class="card-body register-card-body">
+          <h3 class="login-box-msg">Regístrate aquí</h3>
+          <form method="post" enctype="multipart/form-data" name="form_register">
+              {% csrf_token %}
+              <div class="input-group mb-3">
+                  {% if form.non_field_errors %}
+                      <ul class="errorlist">
+                          {% for error in form.non_field_errors %}
+                              <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                  <input type="email" class="form-control" placeholder="Correo" name="email" id="id_email"
+                      {% if form.email.value %} value="{{form.email.value}}" {% endif %} required>
+                  <div class="input-group-append">
+                      <div class="input-group-text">
+                          <span class="fas fa-envelope"></span>
+                      </div>
                   </div>
-                </tr>
+              </div>
+              {% if form.email.help_text %}
+                  <p class="help">{{ form.email.help_text|safe }}</p>
+              {% endif %}
+              {% if form.email.errors %}
+                  <ul class="errorlist">
+                      {% for error in form.email.errors %}
+                          <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                      {% endfor %}
+                  </ul>
+              {% endif %}
+              <div class="input-group mb-3">
+                  <input type="password" class="form-control" placeholder="Contraseña" name="password1"
+                      id="id_password1" {% if form.password1.value %} value="{{form.password1.value}}" {% endif %}
+                      required>
+                  <div class="input-group-append">
+                      <div class="input-group-text">
+                          <span class="fas fa-lock"></span>
+                      </div>
+                  </div>
+              </div>
+              {% if form.password1.errors %}
+                  <ul class="errorlist">
+                      {% for error in form.password1.errors %}
+                          <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                      {% endfor %}
+                  </ul>
+              {% endif %}
+              <div class="input-group mb-3">
+                  <input type="password" class="form-control" placeholder="Confirmación de contraseña" name="password2"
+                      id="id_password2" {% if form.password2.value %} value="{{form.password2.value}}" {% endif %}
+                      required>
+                  <div class="input-group-append">
+                      <div class="input-group-text">
+                          <span class="fas fa-lock"></span>
+                      </div>
+                  </div>
+              </div>
+              {% if form.password2.help_text %}
+                  <p class="help">{{ form.password2.help_text|safe }}</p>
+              {% endif %}
+              {% if form.password2.erros %}
+                  <ul class="errorlist">
+                      {% for error in form.password2.errors %}
+                          <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                      {% endfor %}
+                  </ul>
+              {% endif %}
+              <div class="row">
+                  <div class="col-8">
+                      <div class="icheck-primary">
+                      </div>
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-4">
+                      <button type="submit" class="btn btn-primary btn-block"   >Regístrate</button>
+                  </div>
+                  <!-- /.col -->
+              </div>
 
-                <tr>
-                    <div class="form-group">
-                      <th>
-                        <label for="email">Correo Electronico: </label>
-                      </th>
-                      <th>
-                        <input type="email" class="form-control" placeholder="Correo Electronico." name="email">
-                      </th>
-                    </div>
-                  </tr>
-
-                  <tr>
-                    <div class="form-group">
-                      <th>
-                        <label for="gender">Genero: </label>
-                      </th>
-                      <th>
-                        <input type="gender" class="form-control" placeholder="Genero." name="gender">
-                      </th>
-                    </div>
-                  </tr>
-
-                  <tr>
-                    <div class="form-group">
-                      <th>
-                        <label for="password">Contraseña: </label>
-                      </th>
-                      <th>
-                        <input type="password" class="form-control" placeholder="Contraseña." name="password">
-                      </th>
-                    </div>
-                  </tr>
-            
-                <tr>
-                  <th colspan="2">
-                    <button class="btn colorbtn text-white" type="submit">Registrar</button>
-                  </th>
-                </tr>
-        
-            </table>
-        </form>
-      </div>
-    </table>
-</form>
-
-</body>
-
-</div>
 
 {% endblock content %}

@@ -51,6 +51,7 @@
                     {% endfor %}
                 </ul>
                 {% endif %}
+
                 <div class="input-group mb-3">
                     <input type="password" class="form-control" placeholder="Confirmación de contraseña" name="password2" id="id_password2" {% if form.password2.value %} value="{{form.password2.value}}" {% endif %} required>
                     <div class="input-group-append">
@@ -75,10 +76,10 @@
             <button type="submit" class="is-Button-AceptarXD">Regístrate</button>
 
             <a href="{% url 'index:home' %}">
-                <input type="button" class="is-Button-CancelarXD"  value="Cancelar">
+                <input type="button" class="is-Button-CancelarXD" value="Cancelar">
             </a>
-            <button type="reset" class="is-Button-BorrarXD">Borrar</button> 
-        
+            <button type="reset" class="is-Button-BorrarXD">Borrar</button>
+
         </div>
 
         </form>

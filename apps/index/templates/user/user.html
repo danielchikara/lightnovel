@@ -1,14 +1,125 @@
-{% load static %}
-<h2>New post</h2>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        
-    
+{% extends 'layouts/index/base.html' %} {% load static %} {% block content %}
 
-        <label>Imagen</label>
-        
-        <input type="file" name="imagen" id="id_imagen" class="filestyle" data-buttonname="btn-secondary">
-           
+<section class="is-FontColor01">
+    <br><br>
+    <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
+        <br>
+        <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">Registro de Usuario.</h3>
+        <br>
+        <div class="container-fluid is-TamanoContainerInt">
+
+            <form method="post" enctype="multipart/form-data" name="form_register">
+                {% csrf_token %}
+                <div class="input-group mb-3">
+                    {% if form.non_field_errors %}
+                    <ul class="errorlist">
+                        {% for error in form.non_field_errors %}
+                        <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    <input type="username" class="form-control" placeholder="Nombre de Usuario" name="username" id="id_username" {% if form.username.value %} value="{{form.username.value}}" {% endif %} required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                {% if form.username.help_text %}
+                <p class="help">{{ form.username.help_text|safe }}</p>
+                {% endif %} {% if form.username.errors %}
+                <ul class="errorlist">
+                    {% for error in form.username.errors %}
+                    <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <div class="input-group mb-3">
+                    <select class="form-control" data-style="select-with-transition" name="rol_user" id="id_rol_user" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-grip-lines"></span>
+                            </div>
+                        </div>
+                    <option value=''>Elija el tipo de usuario</option>
+                    {% for x,y in form.fields.rol_user.choices %}
+                    <option value="{{ x }}"{% if form.rol_user.value == x %} selected{% endif %} >
+                    {{ y }}
+                    </option>
+                    {% endfor %}
+                </select> {% if form.rol_user.help_text %}
+                    <p class="help">{{ form.rol_user.help_text|safe }}</p>
+                    {% endif %} {% if form.rol_user.errors %}
+                    <ul class="errorlist">
+                        {% for error in form.rol_user.errors %}
+                        <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Genero" name="gender" id="id_gender" {% if form.gender.value %} value="{{form.gender.value}}" {% endif %} required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-fingerprint"></span>
+                        </div>
+                    </div>
+                </div>
+
+                {% if form.gender.errors %}
+                <ul class="errorlist">
+                    {% for error in form.gender.errors %}
+                    <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" name="age" id="id_age" {% if form.age.value %} value="{{form.age.value}}" {% endif %} required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-hat-cowboy"></span>
+                        </div>
+                    </div>
+                </div>
+
+                {% if form.age.errors %}
+                <ul class="errorlist">
+                    {% for error in form.age.errors %}
+                    <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <div class="custom-file mb-3">
+                    <input type="file" class="custom-file-input" name="imagen" id="id_imagen" {% if form.imagen.value %} value="{{form.imagen.value}}" {% endif %} required>
+                    <label class="custom-file-label" for="customFile">Carga imagen de perfil.</label>
+                </div>
+                {% if form.imagen.errors %}
+                <ul class="errorlist">
+                    {% for error in form.imagen.errors %}
+                    <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <div class="container-fluid is-TamanoContainerInt is-alinea-buttons">
+                    <button type="submit" class="is-Button-AceptarXD">Regístrate</button>
+
+                    <a href="{% url 'index:home' %}">
+                        <input type="button" class="is-Button-CancelarXD" value="Cancelar">
+                    </a>
+                    <button type="reset" class="is-Button-BorrarXD">Borrar</button>
+
+                </div>
+            </form>
+            <br>
+        </div>
+        <br>
     </div>
-    <button type="submit" class="save btn btn-default">Save</button>
-</form>
+    <br><br>
+</section>
+{% endblock content %}

@@ -22,3 +22,28 @@ class RegisterForm(UserCreationForm):
             instance.save() 
         #   User.objects.create(user=instance  ) 
         return instance
+
+
+class UserNovelForm(forms.ModelForm):
+    class Meta:
+        model = UserNovel
+        exclude = ('user_profile','image','status',)
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=255, required=True)
+    password = forms.CharField(widget=forms.PasswordInput, required=True)
+
+    def clean(self):
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        if not user or not user.is_active:
+            raise forms.ValidationError(
+                "Este usuario y contraseña no coinciden, intenta de nuevo.")
+        return self.cleaned_data
+
+    def login(self, request):
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        return user

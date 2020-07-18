@@ -126,3 +126,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 AUTH_USER_MODEL =  'index.User'
+
+FIREBASE_SERVICE_ACCOUNT_KEY = 'lightnovel/config/app-gis-a6b37-firebase-adminsdk-48dci-0d944b2dd9.json'
+STORAGE_BUCKET_NAME = 'light-novels-cb3ec.appspot.com'
+PROJECT_NAME = 'light-novels-cb3ec'
+

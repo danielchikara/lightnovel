@@ -39,7 +39,6 @@ class UserNovel(models.Model):
     username = models.CharField(max_length=150)
     rol_user= models.ForeignKey(RolUser, related_name="rol_users", on_delete=models.CASCADE)    
     status = models.BooleanField(default=True)
-    email = models.EmailField((), max_length=254)
     gender = models.CharField(max_length=150)
     image = models.CharField(max_length=500)
     age = models.CharField(max_length=25)

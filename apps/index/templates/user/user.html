@@ -1,0 +1,14 @@
+{% load static %}
+<h2>New post</h2>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        
+    
+
+        <label>Imagen</label>
+        
+        <input type="file" name="imagen" id="id_imagen" class="filestyle" data-buttonname="btn-secondary">
+           
+    </div>
+    <button type="submit" class="save btn btn-default">Save</button>
+</form>

@@ -126,7 +126,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 AUTH_USER_MODEL =  'index.User'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#firebase
 FIREBASE_SERVICE_ACCOUNT_KEY = 'lightnovel/config/app-gis-a6b37-firebase-adminsdk-48dci-0d944b2dd9.json'
 STORAGE_BUCKET_NAME = 'light-novels-cb3ec.appspot.com'
 PROJECT_NAME = 'light-novels-cb3ec'

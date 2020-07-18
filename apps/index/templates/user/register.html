@@ -1,87 +1,87 @@
-{% extends 'layouts/index/base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'layouts/index/base.html' %} {% load static %} {% block content %}
 
-<div class="register-box">
-  <div class="card">
-      <div class="card-body register-card-body">
-          <h3 class="login-box-msg">Regístrate aquí</h3>
-          <form method="post" enctype="multipart/form-data" name="form_register">
-              {% csrf_token %}
-              <div class="input-group mb-3">
-                  {% if form.non_field_errors %}
-                      <ul class="errorlist">
-                          {% for error in form.non_field_errors %}
-                              <li><strong class="text-danger">{{ error|escape }}</strong></li>
-                          {% endfor %}
-                      </ul>
-                  {% endif %}
-                  <input type="email" class="form-control" placeholder="Correo" name="email" id="id_email"
-                      {% if form.email.value %} value="{{form.email.value}}" {% endif %} required>
-                  <div class="input-group-append">
-                      <div class="input-group-text">
-                          <span class="fas fa-envelope"></span>
-                      </div>
-                  </div>
-              </div>
-              {% if form.email.help_text %}
-                  <p class="help">{{ form.email.help_text|safe }}</p>
-              {% endif %}
-              {% if form.email.errors %}
-                  <ul class="errorlist">
-                      {% for error in form.email.errors %}
-                          <li><strong class="text-danger">{{ error|escape }}</strong></li>
-                      {% endfor %}
-                  </ul>
-              {% endif %}
-              <div class="input-group mb-3">
-                  <input type="password" class="form-control" placeholder="Contraseña" name="password1"
-                      id="id_password1" {% if form.password1.value %} value="{{form.password1.value}}" {% endif %}
-                      required>
-                  <div class="input-group-append">
-                      <div class="input-group-text">
-                          <span class="fas fa-lock"></span>
-                      </div>
-                  </div>
-              </div>
-              {% if form.password1.errors %}
-                  <ul class="errorlist">
-                      {% for error in form.password1.errors %}
-                          <li><strong class="text-danger">{{ error|escape }}</strong></li>
-                      {% endfor %}
-                  </ul>
-              {% endif %}
-              <div class="input-group mb-3">
-                  <input type="password" class="form-control" placeholder="Confirmación de contraseña" name="password2"
-                      id="id_password2" {% if form.password2.value %} value="{{form.password2.value}}" {% endif %}
-                      required>
-                  <div class="input-group-append">
-                      <div class="input-group-text">
-                          <span class="fas fa-lock"></span>
-                      </div>
-                  </div>
-              </div>
-              {% if form.password2.help_text %}
-                  <p class="help">{{ form.password2.help_text|safe }}</p>
-              {% endif %}
-              {% if form.password2.erros %}
-                  <ul class="errorlist">
-                      {% for error in form.password2.errors %}
-                          <li><strong class="text-danger">{{ error|escape }}</strong></li>
-                      {% endfor %}
-                  </ul>
-              {% endif %}
-              <div class="row">
-                  <div class="col-8">
-                      <div class="icheck-primary">
-                      </div>
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-4">
-                      <button type="submit" class="btn btn-primary btn-block"   >Regístrate</button>
-                  </div>
-                  <!-- /.col -->
-              </div>
+<section class="is-FontColor01">
+    <br><br>
+    <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
+        <br>
+        <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">Registro de Usuario.</h3>
+        <br>
+        <div class="container-fluid is-TamanoContainerInt">
+            <form method="post" enctype="multipart/form-data" name="form_register">
+                {% csrf_token %}
+                <div class="input-group mb-3">
+                    {% if form.non_field_errors %}
+                    <ul class="errorlist">
+                        {% for error in form.non_field_errors %}
+                        <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    <input type="email" class="form-control" placeholder="Correo" name="email" id="id_email" {% if form.email.value %} value="{{form.email.value}}" {% endif %} required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                {% if form.email.help_text %}
+                <p class="help">{{ form.email.help_text|safe }}</p>
+                {% endif %} {% if form.email.errors %}
+                <ul class="errorlist">
+                    {% for error in form.email.errors %}
+                    <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" placeholder="Contraseña" name="password1" id="id_password1" {% if form.password1.value %} value="{{form.password1.value}}" {% endif %} required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+
+                {% if form.password1.errors %}
+                <ul class="errorlist">
+                    {% for error in form.password1.errors %}
+                    <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" placeholder="Confirmación de contraseña" name="password2" id="id_password2" {% if form.password2.value %} value="{{form.password2.value}}" {% endif %} required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+
+                {% if form.password2.help_text %}
+                <p class="help">{{ form.password2.help_text|safe }}</p>
+                {% endif %} {% if form.password2.erros %}
+                <ul class="errorlist">
+                    {% for error in form.password2.errors %}
+                    <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+
+                {% endif %}
+        </div>
+        <div class="container-fluid is-TamanoContainerInt is-alinea-buttons">
+            <button type="submit" class="is-Button-AceptarXD">Regístrate</button>
+            <input type="button" class="is-Button-CancelarXD" value="Cancelar">
+            <button type="reset" class="is-Button-BorrarXD">Borrar</button>
+        </div>
+
+        </form>
+        <br>
+    </div>
+    <br><br><br>
+</section>
 
 
 {% endblock content %}

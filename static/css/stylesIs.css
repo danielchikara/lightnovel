@@ -1,0 +1,126 @@
+.is-alinea-buttons {
+    text-align: center;
+}
+
+.is-FontColor01 {
+    background-color: #c4e6ff;
+}
+
+.is-FontColor02 {
+    background-color: #990000;
+}
+
+.is-FontCardXD {
+    background-color: #dc143c85;
+    color: #FFF;
+}
+
+.is-TamanoContainer {
+    width: 60%;
+    box-shadow: 0px 0px 8px #000;
+}
+
+.is-TamanoContainerInt {
+    width: 70%;
+}
+
+.is-NavbarXD {
+    color: #FFF!important;
+    background-color: #990000;
+    font-weight: bold;
+}
+
+.is-Color01,
+.is-hover-Color01:hover {
+    color: #FFF!important;
+    background-color: #DC143B!important
+}
+
+.is-letra-color {
+    color: #FFF!important;
+}
+
+.is-Letra01,
+.is-hover-Letra01:hover {
+    font-weight: bold;
+    color: #990000!important;
+    background-color: #FFF!important
+}
+
+.is-Button-AceptarXD {
+    width: auto;
+    font-size: 1em;
+    background-color: #7498c4;
+    color: #fff;
+    border: 3px solid #557aa8;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px #000;
+    outline: none;
+    transition: background-color 1.8s, border-color 1.8s, color 1.8s, transform 1.8s;
+    -web-kit-transition: background-color 1.8s, border-color 1.8s, color 1.8s;
+    -moz-transition: background-color 1.8s, border-color 1.8s, color 1.8s;
+    -o-transition: background-color 1.8s, border-color 1.8s, color 1.8s;
+}
+
+.is-Button-AceptarXD:hover {
+    background-color: #FFF;
+    border-color: #557aa8;
+    color: #000;
+    cursor: pointer;
+    transform: rotate(-7deg);
+    -webkit-transform: rotate(-7deg);
+    -moz-transform: rotate(-7deg);
+}
+
+.is-Button-CancelarXD {
+    width: auto;
+    font-size: 1em;
+    background-color: #2874a6;
+    color: #fff;
+    border: 3px solid #1b4f72;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px #000;
+    outline: none;
+    transition: background-color 1.8s, border-color 1.8s, color 1.8s, transform 1.8s;
+    -web-kit-transition: background-color 1.8s, border-color 1.8s, color 1.8s;
+    -moz-transition: background-color 1.8s, border-color 1.8s, color 1.8s;
+    -o-transition: background-color 1.8s, border-color 1.8s, color 1.8s;
+}
+
+.is-Button-CancelarXD:hover {
+    background-color: #FFF;
+    border-color: #1b4f72;
+    color: #000;
+    cursor: pointer;
+    transform: rotate(-7deg);
+    -webkit-transform: rotate(-7deg);
+    -moz-transform: rotate(-7deg);
+}
+
+.is-Button-BorrarXD {
+    width: auto;
+    font-size: 1em;
+    background-color: #212f3d;
+    color: #fff;
+    border: 3px solid #17202a;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px #000;
+    outline: none;
+    transition: background-color 1.8s, border-color 1.8s, color 1.8s, transform 1.8s;
+    -web-kit-transition: background-color 1.8s, border-color 1.8s, color 1.8s;
+    -moz-transition: background-color 1.8s, border-color 1.8s, color 1.8s;
+    -o-transition: background-color 1.8s, border-color 1.8s, color 1.8s;
+}
+
+.is-Button-BorrarXD:hover {
+    background-color: #FFF;
+    border-color: #17202a;
+    color: #000;
+    cursor: pointer;
+    transform: rotate(-7deg);
+    -webkit-transform: rotate(-7deg);
+    -moz-transform: rotate(-7deg);
+}

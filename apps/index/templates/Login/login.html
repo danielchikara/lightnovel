@@ -17,13 +17,14 @@
                         {% endfor %}
                     </ul>
                     {% endif %}
+                </div>
                     <input type="text" class="form-control" placeholder="Correo" name="username" id="id_username" value="{{form.username.value}}">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
                         </div>
                     </div>
-                </div>
+                
                 {% if form.username.help_text %}
                 <p class="help">{{ form.username.help_text|safe }}</p>
                 {% endif %} {% if form.username.errors %}

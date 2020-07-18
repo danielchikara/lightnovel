@@ -40,6 +40,10 @@
     color: #FFF!important;
 }
 
+.is-letra-color01 {
+    color: #990000!important;
+}
+
 .is-Letra01,
 .is-hover-Letra01:hover {
     font-weight: bold;

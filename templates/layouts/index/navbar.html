@@ -1,7 +1,7 @@
 {% load static %}
 
 <nav class="navbar navbar-expand-lg is-NavbarXD is-letra-color">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{% url 'index:home' %}">
         <img src="{% static '/images/Logoxd.png' %}" alt="logo" style="width:130px;">
     </a>
     <button class="navbar-toggler navbar-toggler-right is-letra-color" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
@@ -17,6 +17,17 @@
                 <a class="nav-link is-hover-Letra01 is-letra-color" href="#">Noticias</a>
             </li>
         </ul>
+        {%if user.is_staff %}
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link is-hover-Letra01 is-letra-color"> <i class="fas fa-user"></i> {{user.email}}  </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link is-hover-Letra01 is-letra-color" href="{% url 'index:logout' %}"><i class="fab fa-artstation"></i>   Cerrar Sesion</a>
+            </li>
+        </ul>
+        {%else%}
+
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link is-hover-Letra01 is-letra-color" href="{% url 'index:register' %}"><i class="fas fa-user"></i>   Registro</a>
@@ -25,5 +36,6 @@
                 <a class="nav-link is-hover-Letra01 is-letra-color" href="{% url 'index:login' %}"><i class="fab fa-artstation"></i>   Iniciar Sesion</a>
             </li>
         </ul>
+        {% endif %}
     </div>
 </nav>

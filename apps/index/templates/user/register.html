@@ -73,8 +73,12 @@
         </div>
         <div class="container-fluid is-TamanoContainerInt is-alinea-buttons">
             <button type="submit" class="is-Button-AceptarXD">Regístrate</button>
-            <input type="button" class="is-Button-CancelarXD" value="Cancelar">
-            <button type="reset" class="is-Button-BorrarXD">Borrar</button>
+
+            <a href="{% url 'index:home' %}">
+                <input type="button" class="is-Button-CancelarXD"  value="Cancelar">
+            </a>
+            <button type="reset" class="is-Button-BorrarXD">Borrar</button> 
+        
         </div>
 
         </form>

@@ -1,7 +1,63 @@
-{% extends 'layouts/index/base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'layouts/index/base.html' %} {% load static %} {% block content %}
 
+<section class="is-FontColor01">
+    <br><br>
+    <div class="container-fluid is-TamanoContainerCar">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+                <li data-target="#demo" data-slide-to="3"></li>
+                <li data-target="#demo" data-slide-to="4"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static '/images/carusel01.png' %}" alt="Que es" width="900" height="300">
+                    <div class="carousel-caption">
+                        <h3>¿Novela Ligera?</h3>
+                        <p>Antes de leer historias emocionantes aqui, ¿Conoces este tipo de historias?</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/images/carusel02.png' %}" alt="Lee" width="1100" height="500">
+                    <div class="carousel-caption">
+                        <h3>Lee</h3>
+                        <p>En Light Novel For You te ofrecemos una lectura suave y entretenida!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/images/carusel03.png' %}" alt="Escribe" width="1100" height="500">
+                    <div class="carousel-caption">
+                        <h3>Escribe</h3>
+                        <p>Para aquellos que quieran escribir sus propias historias, ¡Pueden hacerlo!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/images/carusel04.png' %}" alt="Como escribir" width="1100" height="500">
+                    <div class="carousel-caption">
+                        <h3>¿Como podrias escribir?</h3>
+                        <p>Aquellos que ya dieron el paso para crear, ¡les daremos una guia adecuada!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/images/carusel05.png' %}" alt="Registrate" width="1100" height="500">
+                    <div class="carousel-caption">
+                        <h3>Registrate</h3>
+                        <p>Todo esto y algo mas, esta al alcance de tu mano, ¡Registrate y maravillate!</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
 
+    <br><br>
+</section>
 
 {% endblock content %}

@@ -24,6 +24,11 @@
     width: 70%;
 }
 
+.is-TamanoContainerCar {
+    width: 70%;
+    height: 500px;
+}
+
 .is-NavbarXD {
     color: #FFF!important;
     background-color: #990000;
@@ -127,4 +132,9 @@
     transform: rotate(-7deg);
     -webkit-transform: rotate(-7deg);
     -moz-transform: rotate(-7deg);
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
 }

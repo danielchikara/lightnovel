@@ -36,6 +36,12 @@ class NovelForm(forms.ModelForm):
         exclude = ('image','status',)
 
 
+class ChapterForm(forms.ModelForm):
+    class Meta:
+        model = Chapter
+        exclude = ('image','status',)
+
+
 
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=255, required=True)

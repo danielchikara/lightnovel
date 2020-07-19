@@ -11,5 +11,6 @@ path('logout/', views.logout_view, name='logout'),
 path('index/user_novel/create/', views.CreateUserNovel.as_view(), name='user'),
 path('index/user_novel/update/<pk>/', views.UpdateUserNovel.as_view(), name='userupdate'),
 path('index/novel/create/', views.CreateNovel.as_view(), name='novel_create'),
+path('index/user_novel/update/<pk>/', views.UpdateUserNovel.as_view(), name='novel_update'),
 
 ]

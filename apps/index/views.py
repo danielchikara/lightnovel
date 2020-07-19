@@ -87,7 +87,7 @@ class CreateNovel(CreateView):
 
     def get_success_url(self):
         pk = self.object.pk
-        return reverse('index:detail_property', kwargs={'pk': pk})
+        return reverse('index:chapter_create', kwargs={'pk': pk})
 
 
 class UpdateNovel(UpdateView):
@@ -120,7 +120,7 @@ class ListNovel(ListView):
 
 
 class CreateChapter(CreateView):
-    template_name = "chapters/create.html"
+    template_name = "chapters/register.html"
     model = Chapter
     form_class = ChapterForm
     success_url = reverse_lazy('index:home')
@@ -133,10 +133,12 @@ class CreateChapter(CreateView):
         return context
 
     def form_valid(self, form):
+        pk_ = get_object_or_404(Novel, pk=self.kwargs['pk'])
+        form.instance.novel = pk_
         image_url = self.request.FILES['image']
         image_url = upload_image_file(image_url,'Chapter/')
         form.instance.image = image_url            
-        return super(CreateNovel, self).form_valid(form)
+        return super(CreateChapter, self).form_valid(form)
 
 
 

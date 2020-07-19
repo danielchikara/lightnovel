@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404,redirect
 from django.contrib.auth import authenticate, login, logout
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView,UpdateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.models import User
@@ -10,36 +10,65 @@ from apps.index.forms import *
 from apps.index.utils import *
 
 class IndexView(TemplateView):
-     template_name = "index.html"
+    template_name = "index.html"
+    
+    #def get_context_data(self, **kwargs):
+        #context['pk_user'] = self.user.pk
 
 
 class CreateRegister(CreateView):
-     template_name = "user/register.html"
-     model = User
-     form_class = RegisterForm
-     success_url = reverse_lazy('index:home')
+    template_name = "user/register.html"
+    model = User
+    form_class = RegisterForm
+    success_url = reverse_lazy('index:home')
 
 
 class CreateUserNovel(CreateView):
-     template_name = "user/user.html"
-     model = UserNovel
-     form_class = UserNovelForm
-     success_url = reverse_lazy('index:home')
+    template_name = "user/user.html"
+    model = UserNovel
+    form_class = UserNovelForm
+    success_url = reverse_lazy('index:home')
      
-     def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['operation'] = 'Create'
+        context['title1'] = 'Registro  de Datos. '
+        context['operation'] = 'Registrar'
         return context
 
-     def form_valid(self, form):
+    def form_valid(self, form):
         form.instance.user_profile = self.request.user
         image_url = self.request.FILES['image']
-        print(image_url)
         image_url = upload_image_file(image_url,'userNovel/')
         form.instance.image = image_url
         
             
         return super(CreateUserNovel, self).form_valid(form)
+
+
+class UpdateUserNovel(UpdateView):
+    template_name = "user/user.html"
+    model = UserNovel
+    form_class = UserNovelForm
+    success_url = reverse_lazy('index:home')
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        instance = self.get_object()
+        context['image_user'] = instance.image
+        context['operation'] = 'Actualizar'
+        context['title1'] = 'Actualizacion de Datos. '
+
+        return context
+
+    def form_valid(self, form):
+        form.instance.user_profile = self.request.user
+        if self.request.FILES.get('document_file', False):
+            image_url = self.request.FILES['image']
+            image_url = upload_image_file(image_url,'userNovel/')
+            form.instance.image = image_url
+
+        return super(UpdateUserNovel,self).form_valid(form)
+
 
 
 class LoginView(TemplateView):

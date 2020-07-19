@@ -58,6 +58,12 @@
     font-weight: bold;
 }
 
+.is-tableNov {
+    color: #FFF!important;
+    background-color: #557aa8;
+    font-weight: bold;
+}
+
 .is-Color01,
 .is-hover-Color01:hover {
     color: #FFF!important;
@@ -181,6 +187,19 @@
     background-color: #FFF;
     border-color: #636262;
     color: #000;
+    cursor: pointer;
+}
+
+.is-Button-View {
+    background-color: #FFF;
+    border: 1px solid #000;
+    color: #000;
+}
+
+.is-Button-View:hover {
+    background-color: #FFCA28;
+    border: 2px solid #EF6C00;
+    color: #fff;
     cursor: pointer;
 }
 

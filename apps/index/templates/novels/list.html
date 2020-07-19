@@ -1,0 +1,42 @@
+{% extends 'layouts/index/base.html' %} {% load static %} {% block content %}
+
+<section class="is-FontColor01">
+    <br><br>
+    <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
+        <br>
+        <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">Tus Historias.</h3>
+        <br>
+        <div class="container-fluid is-TamanoContainerInt">
+            <center>
+                <div class="table-responsive table-striped">
+                    <table class="is-TamanoContainerIntInd">
+                        <thead class="is-tableNov">
+                            <tr>
+                                <th>Nombre de la Novela.</th>
+                                <th>Cantidad de Capitulos.</th>
+                                <th>Acciones.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Andeddo no Yohei</td>
+                                <td>369</td>
+                                <td>
+                                    <a href="{% url 'index:home' %}">
+                                        <input type="button" class="is-Button-View" value='<span class="fas fa-grip-lines"></span>'>
+                                    </a>
+                                    <a href="{% url 'index:home' %}">
+                                        <input type="button" class="is-Button-View" value='<span class="fas fa-grip-lines"></span>'>
+                                    </a>
+                                    <a href="{% url 'index:home' %}">
+                                        <input type="button" class="is-Button-View" value='<span class="fas fa-grip-lines"></span>'>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </center>
+        </div>
+    </div>
+</section>

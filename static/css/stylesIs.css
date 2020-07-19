@@ -48,6 +48,10 @@
     width: 90%;
 }
 
+.is-TamanoContainerIntIntXD {
+    width: 70%;
+}
+
 .is-NavbarXD {
     color: #FFF!important;
     background-color: #990000;
@@ -58,6 +62,12 @@
 .is-hover-Color01:hover {
     color: #FFF!important;
     background-color: #DC143B!important
+}
+
+.is-Color02,
+.is-hover-Color01:hover {
+    color: #DC143B!important;
+    background-color: #FFF!important
 }
 
 .is-letra-color {

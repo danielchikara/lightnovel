@@ -40,7 +40,7 @@
                     <textarea class="form-control" rows="5" style="resize:none;" id="comment" placeholder="Descripcion." name="description" id="id_description" {% if form.description.value %} value="{{form.description.value}}" {% endif %} required></textarea>
                     <div class="input-group-append">
                         <div class="input-group-text">
-                            <span class="fas fa-grip-lines"></span>
+                            <span class="fa fa-bitbucket"></span>
                         </div>
                     </div>
                 </div>
@@ -81,6 +81,7 @@
                     <input type="file" class="custom-file-input" name="image" id="id_image" {% if form.image.value %} value="{{form.image.value}}" {% endif %} required>
                     <label class="custom-file-label" for="customFile">Carga imagen de portada.</label>
                 </div>
+
                 <script>
                     // Add the following code if you want the name of the file appear on select
                     $(".custom-file-input").on("change", function() {
@@ -96,6 +97,7 @@
                 </ul>
                 {% endif %}
 
+                <br>
                 <div class="container-fluid is-TamanoContainerInt is-alinea-buttons">
                     <button type="submit" class="is-Button-AceptarXD">{{operation}}</button>
 

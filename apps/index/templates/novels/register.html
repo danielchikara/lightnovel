@@ -22,7 +22,7 @@
                     <input type="text" class="form-control" placeholder="Titulo de Novela" name="name" id="id_name" {% if form.name.value %} value="{{form.name.value}}" {% endif %} required>
                     <div class="input-group-append">
                         <div class="input-group-text">
-                            <span class="fas fa-envelope"></span>
+                            <span class="fa fa-bank"></span>
                         </div>
                     </div>
                 </div>
@@ -37,10 +37,10 @@
                 {% endif %}
 
                 <div class="input-group mb-3">
-                    <input type="textarea" class="form-control" placeholder="Descripcion." name="description" id="id_description" {% if form.description.value %} value="{{form.description.value}}" {% endif %} required>
+                    <textarea class="form-control" rows="5" style="resize:none;" id="comment" placeholder="Descripcion." name="description" id="id_description" {% if form.description.value %} value="{{form.description.value}}" {% endif %} required></textarea>
                     <div class="input-group-append">
                         <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
+                            <span class="fas fa-grip-lines"></span>
                         </div>
                     </div>
                 </div>

@@ -69,7 +69,9 @@
                 {% endif %}
 
                 <div class="input-group mb-3">
-                    <textarea class="form-control" rows="15" style="resize:none;" placeholder="Contenido." name="content" id="id_content" {% if form.content.value %} value="{{form.content.value}}" {% endif %} required></textarea>
+                    <textarea class="form-control" rows="15" style="resize:none;" placeholder="Contenido." name="content" 
+                        id="id_content" {% if form.content.value %} 
+                        {% endif %} required> {{form.content.value}}</textarea>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fa fa-bitbucket"></span>
@@ -98,7 +100,7 @@
                     <div class="form-check" style="color: black;">
                         <label class="form-check-label">
                       <input type="checkbox" class="form-check-input" name="status" id="id_status" 
-                      value="true" {% if form.status.value %} value="{{form.status.value}}" {% endif %}>Publicar
+                      value="true" {% if form.status.value == True %} checked {% endif %}>Publicar
                     </label>
                     </div>
                     <br>

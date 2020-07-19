@@ -4,14 +4,13 @@
     <br><br>
     <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
         <br>
-        <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">Andedno no Yohei.</h3>
+        <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">{{title.name}}</h3>
         <br>
-        <h1 class="text-lg-center" style="color: #fff;">
-            La gran mayoría de los personajes introducidos en la serie son ninjas provenientes de las distintas aldeas y facciones que aparecen en la historia. Los protagonistas pertenecen a la Aldea Oculta de la Hoja y la historia, si bien no gira en torno a ellos,
-            es narrada mayormente con base en sus aventuras.
-        </h1>
+        <h6 class="text-lg-center" style="color: #fff;">
+           {{title.description}}
+        </h6>
         <br>
-        <a href="{% url 'index:chapter_create' novel.pk %}">
+        <a href=" #">
             <button class="is-Button-CreChap">
                 <span class="fa fa-gears"></span>  Crear Nuevo Capitulo.
             </button>
@@ -29,11 +28,11 @@
                             </tr>
                         </thead>
                         <tbody class="is-Letra02">
-                            {% for novel in novel_list %}
+                            {% for chapter in list %}
                             <tr>
-                                <td>{{novel.name}}</td>
+                                <td>{{chapter.name}}</td>
                                 <td>
-                                    <a href="{% url 'index:novel_update' novel.pk %}">
+                                    <a href="{% url 'index:chapter_update' chapter.pk %}">
                                         <button class="is-Button-Mod">
                                             <span class="fa fa-gears"></span>
                                         </button>

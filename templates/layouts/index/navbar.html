@@ -26,7 +26,7 @@
                 <div class="dropdown-menu">
                     {% if user.personal_information %}
                     <a class="dropdown-item is-letra-color01" href="{% url 'index:userupdate' user.personal_information.pk %}">actualizar perfil</a>
-                    <a class="dropdown-item is-letra-color01" href="#">Crear historia</a>
+                    <a class="dropdown-item is-letra-color01" href="{% url 'index:novel_list' %}">Mis Historias</a>
                     {%else%}
                     <a class="dropdown-item is-letra-color01" href="{% url 'index:user' %}">registrar </a>
                     {% endif %}

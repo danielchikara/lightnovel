@@ -77,7 +77,12 @@ class LoginView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect('index:user')
+            try:
+                request.user.personal_information != None
+                pk = self.request.user.personal_information.id
+                return redirect('index:userupdate',pk)
+            except:
+                return redirect('index:user')
         return super(LoginView, self).get(request, **kwargs)
 
     def post(self, request):
@@ -85,7 +90,12 @@ class LoginView(TemplateView):
         if form.is_valid():
             user = form.login(request)
             login(request, user)
-            return redirect('index:user')
+            try: 
+                request.user.personal_information != None
+                
+                return redirect('index:home')
+            except:
+                return redirect('index:user')
         return render(request, self.template_name, {'form': form })
 
 def logout_view(request):

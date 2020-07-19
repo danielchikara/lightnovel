@@ -11,6 +11,7 @@
                 <div class="table-responsive table-striped">
                     <table class="is-tableNov">
                         <thead class="is-headerTableNov">
+                            
                             <tr class="is-table-TamanoH">
                                 <th>Novela.</th>
                                 <th>Capitulos.</th>
@@ -18,16 +19,17 @@
                             </tr>
                         </thead>
                         <tbody class="is-Letra02">
+                            {% for novel in novel_list %}
                             <tr>
-                                <td>Andeddo no Yohei</td>
-                                <td>369</td>
+                                <td>{{novel.name}}</td>
+                                <td>{{novel.chapter_novel.count}}</td>
                                 <td>
                                     <a href="{% url 'index:home' %}">
                                         <button class="is-Button-View">
                                             <span class="fa fa-book"></span>
                                         </button>
                                     </a>
-                                    <a href="{% url 'index:home' %}">
+                                    <a href="{% url 'index:novel_update' novel.pk %}">
                                         <button class="is-Button-Mod">
                                             <span class="fa fa-gears"></span>
                                         </button>
@@ -39,6 +41,7 @@
                                     </a>
                                 </td>
                             </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

@@ -69,7 +69,7 @@ class CreateNovel(CreateView):
     template_name = "novels/register.html"
     model = Novel
     form_class = NovelForm
-    success_url = reverse_lazy('index:home')
+    
 
      
     def get_context_data(self, **kwargs):
@@ -84,6 +84,10 @@ class CreateNovel(CreateView):
         image_url = upload_image_file(image_url,'novel/')
         form.instance.image = image_url            
         return super(CreateNovel, self).form_valid(form)
+
+    def get_success_url(self):
+        pk = self.object.pk
+        return reverse('index:detail_property', kwargs={'pk': pk})
 
 
 class UpdateNovel(UpdateView):

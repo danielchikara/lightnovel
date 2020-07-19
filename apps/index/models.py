@@ -48,17 +48,6 @@ class UserNovel(models.Model):
 
 
 
-
-
-class ReadingList(models.Model):
-    user_novel = models.ForeignKey(UserNovel, related_name="accounts_list", on_delete=models.CASCADE)
-    name_list =models.CharField(max_length=50)
-    text = models.TextField()
-
-    def __str__(self):
-        return self.name_list
-
-
 class Genre(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=50)
@@ -81,7 +70,6 @@ class SubGenre(models.Model):
 
 class Novel(models.Model):
     subgenre = models.ForeignKey(SubGenre, related_name="subgenre_novel", on_delete=models.CASCADE)
-    list_read = models.ForeignKey(ReadingList, related_name="list_read_novel", on_delete=models.CASCADE)
     name = models.CharField( max_length=100)
     description = models.TextField()
     status = models.BooleanField(default=True)
@@ -90,6 +78,16 @@ class Novel(models.Model):
     def __str__(self):
         return self.name
         
+
+class ReadingList(models.Model):
+    user_novel = models.ForeignKey(UserNovel, related_name="accounts_list", on_delete=models.CASCADE)
+    list_read = models.ForeignKey(Novel, related_name="list_read_novel", on_delete=models.CASCADE, default=None )
+    name_list =models.CharField(max_length=50)
+    text = models.TextField()
+
+    def __str__(self):
+        return self.name_list
+
 
 class Chapter(models.Model):
     novel = models.ForeignKey(Novel, related_name="chapter_novel", on_delete=models.CASCADE)

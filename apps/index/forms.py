@@ -29,6 +29,14 @@ class UserNovelForm(forms.ModelForm):
         model = UserNovel
         exclude = ('user_profile','image','status',)
 
+
+class NovelForm(forms.ModelForm):
+    class Meta:
+        model = Novel
+        exclude = ('image','status',)
+
+
+
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=255, required=True)
     password = forms.CharField(widget=forms.PasswordInput, required=True)

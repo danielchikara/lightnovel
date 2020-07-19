@@ -59,10 +59,12 @@ class UpdateUserNovel(UpdateView):
 
     def form_valid(self, form):
         form.instance.user_profile = self.request.user
-        if self.request.FILES.get('document_file', False):
+        if self.request.FILES.get('image', False):
             image_url = self.request.FILES['image']
             image_url = upload_image_file(image_url,'userNovel/')
             form.instance.image = image_url
+        
+        
         return super(UpdateUserNovel,self).form_valid(form)
 
 class CreateNovel(CreateView):

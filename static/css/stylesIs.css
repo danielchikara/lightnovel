@@ -52,16 +52,36 @@
     width: 70%;
 }
 
+.is-TamanoContainerPlubi {
+    width: 40%;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
 .is-NavbarXD {
     color: #FFF!important;
     background-color: #990000;
     font-weight: bold;
 }
 
-.is-tableNov {
+.is-headerTableNov {
     color: #FFF!important;
     background-color: #557aa8;
     font-weight: bold;
+    text-align: center;
+    height: 40px;
+    word-wrap: break-word;
+}
+
+.is-table-TamanoH {
+    height: 30px;
+    word-wrap: break-word;
+}
+
+table {
+    table-layout: fixed;
+    border-radius: 20px;
+    width: 100%;
 }
 
 .is-Color01,
@@ -82,6 +102,11 @@
 
 .is-letra-color01 {
     color: #990000!important;
+}
+
+.is-Letra02 {
+    color: #FFF!important;
+    text-align: center;
 }
 
 .is-Letra01,
@@ -192,13 +217,48 @@
 
 .is-Button-View {
     background-color: #FFF;
-    border: 1px solid #000;
+    border: 2px solid #000;
     color: #000;
+    width: 35px;
+    height: 35px;
+    border-radius: 4px;
 }
 
 .is-Button-View:hover {
     background-color: #FFCA28;
     border: 2px solid #EF6C00;
+    color: #fff;
+    cursor: pointer;
+}
+
+.is-Button-Mod {
+    background-color: #FFF;
+    border: 2px solid #000;
+    color: #000;
+    width: 35px;
+    height: 35px;
+    border-radius: 4px;
+}
+
+.is-Button-Mod:hover {
+    background-color: #28a9ff;
+    border: 2px solid #0030cf;
+    color: #fff;
+    cursor: pointer;
+}
+
+.is-Button-Elm {
+    background-color: #FFF;
+    border: 2px solid #000;
+    color: #000;
+    width: 35px;
+    height: 35px;
+    border-radius: 4px;
+}
+
+.is-Button-Elm:hover {
+    background-color: #8c00ff;
+    border: 2px solid #330091;
     color: #fff;
     cursor: pointer;
 }

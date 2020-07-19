@@ -85,37 +85,22 @@
                 </ul>
                 {% endif %}
 
-                <div class="input-group mb-3">
-                    <select class="form-control" data-style="select-with-transition" name="subgenre" id="id_subgenre" required>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-grip-lines"></span>
-                            </div>
-                        </div>
-                    <option value=''>Elija el subgenero de la novela.</option>
-                    {% for x,y in form.fields.subgenre.choices %}
-                    <option value="{{ x }}"{% if form.subgenre.value == x %} selected{% endif %} >
-                    {{ y }}
-                    </option>
-                    {% endfor %}
-                </select> {% if form.subgenre.help_text %}
-                    <p class="help">{{ form.subgenre.help_text|safe }}</p>
-                    {% endif %} {% if form.subgenre.errors %}
-                    <ul class="errorlist">
-                        {% for error in form.subgenre.errors %}
-                        <li><strong class="text-danger">{{ error|escape }}</strong></li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                </div>
-                <br>
                 <div class="container-fluid is-TamanoContainerInt is-alinea-buttons">
                     <button type="submit" class="is-Button-AceptarXD">{{operation}}</button>
                     <a href="{% url 'index:home' %}">
                         <input type="button" class="is-Button-CancelarXD" value="Cancelar">
                     </a>
                     <button type="reset" class="is-Button-BorrarXD">Borrar</button>
+                </div>
 
+                <div class="container-fluid is-alinea-buttons is-TamanoContainerPlubi">
+                    <br>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" value="">Publicar
+                    </label>
+                    </div>
+                    <br>
                 </div>
             </form>
             <br>
@@ -124,4 +109,5 @@
     </div>
     <br><br>
 </section>
+
 {% endblock content %}

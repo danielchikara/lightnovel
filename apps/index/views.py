@@ -70,12 +70,12 @@ class CreateNovel(CreateView):
     model = Novel
     form_class = NovelForm
     success_url = reverse_lazy('index:home')
-    context['operation'] = 'Crear.'
-    context['title1'] = 'Creacion de Novela.'
+
      
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['operation'] = 'Crear novela'
+        context['operation'] = 'Crear.'
+        context['title1'] = 'Creacion de Novela.'
         return context
 
     def form_valid(self, form):

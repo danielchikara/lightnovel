@@ -15,6 +15,11 @@
     color: #FFF;
 }
 
+.is-FontCard01XD {
+    background-color: #35343485;
+    color: #FFF;
+}
+
 .is-TamanoContainer {
     width: 60%;
     box-shadow: 0px 0px 8px #000;
@@ -27,6 +32,20 @@
 .is-TamanoContainerCar {
     width: 70%;
     height: 450px;
+}
+
+.is-TamanoContainerCard {
+    width: 250px;
+    height: 334px;
+}
+
+.is-TamanoContainerIndex {
+    width: 90%;
+    box-shadow: 0px 0px 8px #000;
+}
+
+.is-TamanoContainerIntInd {
+    width: 90%;
 }
 
 .is-NavbarXD {
@@ -132,6 +151,27 @@
     transform: rotate(-7deg);
     -webkit-transform: rotate(-7deg);
     -moz-transform: rotate(-7deg);
+}
+
+.is-Button-LeerXD {
+    width: 100%;
+    font-size: 1em;
+    background-color: transparent;
+    color: #fff;
+    border: 3px solid #636262;
+    padding: 10px 15px;
+    border-radius: 8px;
+    outline: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.is-Button-LeerXD:hover {
+    background-color: #FFF;
+    border-color: #636262;
+    color: #000;
+    cursor: pointer;
 }
 
 .carousel-inner img {

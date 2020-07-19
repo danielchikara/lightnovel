@@ -1,0 +1,115 @@
+{% extends 'layouts/index/base.html' %} {% load static %} {% block content %}
+
+<section class="is-FontColor01">
+    <br><br>
+    <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
+        <br>
+        <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">{{title1}}</h3>
+        <br>
+        <div class="container-fluid is-TamanoContainerInt">
+
+            <form method="post" enctype="multipart/form-data" name="form_register">
+                {% csrf_token %}
+                <div class="input-group mb-3">
+                    {% if form.non_field_errors %}
+                    <ul class="errorlist">
+                        {% for error in form.non_field_errors %}
+                        <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    <input type="text" class="form-control" placeholder="Titulo de Novela" name="name" id="id_name" {% if form.name.value %} value="{{form.name.value}}" {% endif %} required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                {% if form.name.help_text %}
+                <p class="help">{{ form.name.help_text|safe }}</p>
+                {% endif %} {% if form.name.errors %}
+                <ul class="errorlist">
+                    {% for error in form.name.errors %}
+                    <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <div class="input-group mb-3">
+                    <input type="textarea" class="form-control" placeholder="Descripcion." name="description" id="id_description" {% if form.description.value %} value="{{form.description.value}}" {% endif %} required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+
+                {% if form.description.errors %}
+                <ul class="errorlist">
+                    {% for error in form.description.errors %}
+                    <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <div class="input-group mb-3">
+                    <select class="form-control" data-style="select-with-transition" name="subgenre" id="id_subgenre" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-grip-lines"></span>
+                            </div>
+                        </div>
+                    <option value=''>Elija el subgenero de la novela.</option>
+                    {% for x,y in form.fields.subgenre.choices %}
+                    <option value="{{ x }}"{% if form.subgenre.value == x %} selected{% endif %} >
+                    {{ y }}
+                    </option>
+                    {% endfor %}
+                </select> {% if form.subgenre.help_text %}
+                    <p class="help">{{ form.subgenre.help_text|safe }}</p>
+                    {% endif %} {% if form.subgenre.errors %}
+                    <ul class="errorlist">
+                        {% for error in form.subgenre.errors %}
+                        <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+
+                <div class="custom-file mb-3">
+                    <input type="file" class="custom-file-input" name="image" id="id_image" {% if form.image.value %} value="{{form.image.value}}" {% endif %} required>
+                    <label class="custom-file-label" for="customFile">Carga imagen de perfil.</label>
+                </div>
+                <script>
+                    // Add the following code if you want the name of the file appear on select
+                    $(".custom-file-input").on("change", function() {
+                        var fileName = $(this).val().split("\\").pop();
+                        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                    });
+                </script>
+                {% if form.image.errors %}
+                <ul class="errorlist">
+                    {% for error in form.image.errors %}
+                    <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <div class="container-fluid is-TamanoContainerInt is-alinea-buttons">
+                    <button type="submit" class="is-Button-AceptarXD">{{operation}}</button>
+
+                    <a href="{% url 'index:home' %}">
+                        <input type="button" class="is-Button-CancelarXD" value="Cancelar">
+                    </a>
+                    <button type="reset" class="is-Button-BorrarXD">Borrar</button>
+
+                </div>
+            </form>
+            <br>
+        </div>
+        <br>
+    </div>
+    <br><br>
+</section>
+{% endblock content %}

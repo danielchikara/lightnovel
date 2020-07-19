@@ -54,7 +54,7 @@ class UpdateUserNovel(UpdateView):
         instance = self.get_object()
         context['image_user'] = instance.image
         context['operation'] = 'Actualizar'
-        context['title1'] = 'Actualizacion de Datos. '
+        context['title1'] = 'Actualizacion de Datos.'
         return context
 
     def form_valid(self, form):
@@ -70,6 +70,8 @@ class CreateNovel(CreateView):
     model = Novel
     form_class = NovelForm
     success_url = reverse_lazy('index:home')
+    context['operation'] = 'Crear.'
+    context['title1'] = 'Creacion de Novela.'
      
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -78,7 +80,7 @@ class CreateNovel(CreateView):
 
     def form_valid(self, form):
         image_url = self.request.FILES['image']
-        image_url = upload_image_file(image_url,'userNovel/')
+        image_url = upload_image_file(image_url,'novel/')
         form.instance.image = image_url            
         return super(CreateUserNovel, self).form_valid(form)
 

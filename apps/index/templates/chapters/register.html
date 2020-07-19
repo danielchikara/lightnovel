@@ -50,8 +50,8 @@
                 </ul>
                 {% endif %}
 
-                <div>
-                    <input type="text" class="form-control" placeholder="Titulo de Novela" name="name" id="id_name" {% if form.name.value %} value="{{form.name.value}}" {% endif %} required>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Titulo del Capitulo" name="name" id="id_name" {% if form.name.value %} value="{{form.name.value}}" {% endif %} required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fa fa-bank"></span>
@@ -69,7 +69,7 @@
                 {% endif %}
 
                 <div class="input-group mb-3">
-                    <textarea class="form-control" rows="5" style="resize:none;" id="comment" placeholder="Descripcion." name="description" id="id_description" {% if form.description.value %} value="{{form.description.value}}" {% endif %} required></textarea>
+                    <textarea class="form-control" rows="15" style="resize:none;" placeholder="Contenido." name="content" id="id_content" {% if form.content.value %} value="{{form.content.value}}" {% endif %} required></textarea>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fa fa-bitbucket"></span>
@@ -77,9 +77,9 @@
                     </div>
                 </div>
 
-                {% if form.description.errors %}
+                {% if form.content.errors %}
                 <ul class="errorlist">
-                    {% for error in form.description.errors %}
+                    {% for error in form.content.errors %}
                     <li><strong class="text-danger">{{ error|escape }}</strong></li>
                     {% endfor %}
                 </ul>
@@ -92,12 +92,13 @@
                     </a>
                     <button type="reset" class="is-Button-BorrarXD">Borrar</button>
                 </div>
-
+                <br>
                 <div class="container-fluid is-alinea-buttons is-TamanoContainerPlubi">
                     <br>
-                    <div class="form-check">
+                    <div class="form-check" style="color: black;">
                         <label class="form-check-label">
-                      <input type="checkbox" class="form-check-input" value="">Publicar
+                      <input type="checkbox" class="form-check-input" name="status" id="id_status" 
+                      value="true" {% if form.status.value %} value="{{form.status.value}}" {% endif %}>Publicar
                     </label>
                     </div>
                     <br>

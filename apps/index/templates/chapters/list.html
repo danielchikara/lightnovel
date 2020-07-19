@@ -1,0 +1,59 @@
+{% extends 'layouts/index/base.html' %} {% load static %} {% block content %}
+
+<section class="is-FontColor01">
+    <br><br>
+    <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
+        <br>
+        <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">Andedno no Yohei.</h3>
+        <br>
+        <h1 class="text-lg-center" style="color: #fff;">
+            La gran mayoría de los personajes introducidos en la serie son ninjas provenientes de las distintas aldeas y facciones que aparecen en la historia. Los protagonistas pertenecen a la Aldea Oculta de la Hoja y la historia, si bien no gira en torno a ellos,
+            es narrada mayormente con base en sus aventuras.
+        </h1>
+        <br>
+        <a href="{% url 'index:chapter_create' novel.pk %}">
+            <button class="is-Button-CreChap">
+                <span class="fa fa-gears"></span>  Crear Nuevo Capitulo.
+            </button>
+        </a>
+
+        <div class="container-fluid is-TamanoContainerIntInd">
+            <center>
+                <div class="table-responsive table-striped">
+                    <table class="is-tableNov">
+                        <thead class="is-headerTableNov">
+
+                            <tr class="is-table-TamanoH">
+                                <th>Titulo.</th>
+                                <th>Acciones.</th>
+                            </tr>
+                        </thead>
+                        <tbody class="is-Letra02">
+                            {% for novel in novel_list %}
+                            <tr>
+                                <td>{{novel.name}}</td>
+                                <td>
+                                    <a href="{% url 'index:novel_update' novel.pk %}">
+                                        <button class="is-Button-Mod">
+                                            <span class="fa fa-gears"></span>
+                                        </button>
+                                    </a>
+                                    <a href="{% url 'index:home' %}">
+                                        <button class="is-Button-Elm">
+                                            <span class="fa fa-times"></span>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </center>
+            <br>
+        </div>
+    </div>
+    <br><br>
+</section>
+
+{% endblock content %}

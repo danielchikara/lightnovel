@@ -70,6 +70,7 @@ class SubGenre(models.Model):
 
 class Novel(models.Model):
     subgenre = models.ForeignKey(SubGenre, related_name="subgenre_novel", on_delete=models.CASCADE)
+    user_novel = models.ForeignKey(UserNovel,related_name= "user_novels",on_delete=models.CASCADE,default=None, null=True)
     name = models.CharField( max_length=100)
     description = models.TextField()
     status = models.BooleanField(default=True)

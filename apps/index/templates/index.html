@@ -70,14 +70,15 @@
                 <table class="is-TamanoContainerIntInd">
                     <tbody>
                         <tr>
+                            {% for novel in novel_list %}
                             <td>
                                 <div class="card img-fluid is-TamanoContainerCard">
-                                    <img class="card-img-top" src="{% static '/images/historiadefect.png' %}" alt="Card image" style="width:100%">
+                                    <img class="card-img-top" src="{{novel.image}}" alt="Card image" style="width:100%">
                                     <div class="card-img-overlay is-FontCard01XD">
-                                        <h4 class="card-title">Nombre Historia</h4>
+                                        <h4 class="card-title">{{novel.name}}</h4>
                                         <center><a href="#demo1" class="btn btn-primary" data-toggle="collapse">Ver Descripcion...</a></center>
                                         <div id="demo1" class="collapse">
-                                            Esta es la descripcion xdxdxdxdxdxdxdxdxdxd
+                                            {{novel.description}}
                                         </div>
                                         <div class="footer">
                                             <a href="#"><input type="button" class="is-Button-LeerXD" value="Leeloxd"></a>
@@ -86,54 +87,8 @@
                                 </div>
                                 <br>
                             </td>
-                            <td>
-                                <div class="card img-fluid is-TamanoContainerCard">
-                                    <img class="card-img-top" src="{% static '/images/historiadefect.png' %}" alt="Card image" style="width:100%">
-                                    <div class="card-img-overlay is-FontCard01XD">
-                                        <h4 class="card-title">Nombre Historia</h4>
-                                        <center><a href="#demo1" class="btn btn-primary" data-toggle="collapse">Ver Descripcion...</a></center>
-                                        <div id="demo1" class="collapse">
-                                            Esta es la descripcion xdxdxdxdxdxdxdxdxdxd
-                                        </div>
-                                        <div class="footer">
-                                            <a href="#"><input type="button" class="is-Button-LeerXD" value="Leeloxd"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                            </td>
-                            <td>
-                                <div class="card img-fluid is-TamanoContainerCard">
-                                    <img class="card-img-top" src="{% static '/images/historiadefect.png' %}" alt="Card image" style="width:100%">
-                                    <div class="card-img-overlay is-FontCard01XD">
-                                        <h4 class="card-title">Nombre Historia</h4>
-                                        <center><a href="#demo1" class="btn btn-primary" data-toggle="collapse">Ver Descripcion...</a></center>
-                                        <div id="demo1" class="collapse">
-                                            Esta es la descripcion xdxdxdxdxdxdxdxdxdxd
-                                        </div>
-                                        <div class="footer">
-                                            <a href="#"><input type="button" class="is-Button-LeerXD" value="Leeloxd"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                            </td>
-                            <td>
-                                <div class="card img-fluid is-TamanoContainerCard">
-                                    <img class="card-img-top" src="{% static '/images/historiadefect.png' %}" alt="Card image" style="width:100%">
-                                    <div class="card-img-overlay is-FontCard01XD">
-                                        <h4 class="card-title">Nombre Historia</h4>
-                                        <center><a href="#demo1" class="btn btn-primary" data-toggle="collapse">Ver Descripcion...</a></center>
-                                        <div id="demo1" class="collapse">
-                                            Esta es la descripcion xdxdxdxdxdxdxdxdxdxd
-                                        </div>
-                                        <div class="footer">
-                                            <a href="#"><input type="button" class="is-Button-LeerXD" value="Leeloxd"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                            </td>
+                            
+                            {% endfor %}
                         </tr>
                         <tr>
                             <td>

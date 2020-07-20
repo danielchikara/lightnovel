@@ -68,29 +68,7 @@
                 </ul>
                 {% endif %}
 
-                <div class="input-group mb-3">
-                    <select class="form-control" data-style="select-with-transition" name="rol_user" id="id_rol_user" required>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-grip-lines"></span>
-                            </div>
-                        </div>
-                    <option value=''>Elija el tipo de usuario</option>
-                    {% for x,y in form.fields.rol_user.choices %}
-                    <option value="{{ x }}"{% if form.rol_user.value == x %} selected{% endif %} >
-                    {{ y }}
-                    </option>
-                    {% endfor %}
-                </select> {% if form.rol_user.help_text %}
-                    <p class="help">{{ form.rol_user.help_text|safe }}</p>
-                    {% endif %} {% if form.rol_user.errors %}
-                    <ul class="errorlist">
-                        {% for error in form.rol_user.errors %}
-                        <li><strong class="text-danger">{{ error|escape }}</strong></li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                </div>
+               
 
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Genero" name="gender" id="id_gender" {% if form.gender.value %} value="{{form.gender.value}}" {% endif %} required>

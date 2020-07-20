@@ -37,7 +37,7 @@ class RolUser(models.Model):
 class UserNovel(models.Model):
     user_profile = models.OneToOneField(User, on_delete=models.CASCADE, related_name="personal_information") 
     username = models.CharField(max_length=150)
-    rol_user= models.ForeignKey(RolUser, related_name="rol_users", on_delete=models.CASCADE)    
+    rol_user= models.ForeignKey(RolUser, related_name="rol_users", on_delete=models.CASCADE,default=1)    
     status = models.BooleanField(default=True)
     gender = models.CharField(max_length=150)
     image = models.CharField(max_length=500)

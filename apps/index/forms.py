@@ -27,7 +27,7 @@ class RegisterForm(UserCreationForm):
 class UserNovelForm(forms.ModelForm):
     class Meta:
         model = UserNovel
-        exclude = ('user_profile','image','status',)
+        exclude = ('user_profile','rol_user','image','status',)
 
 
 class NovelForm(forms.ModelForm):

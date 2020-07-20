@@ -1,4 +1,6 @@
 Django==3.0.3
 psycopg2-binary
-djangorestframework==3.11.0
-httpie==2.0.0
+google-cloud-storage==1.29.0
+numpy==1.19.0
+scikit-image==0.17.2
+opencv-python==4.3.0.36

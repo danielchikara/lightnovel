@@ -4,29 +4,31 @@ from django.shortcuts import render, get_object_or_404,redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.utils.decorators import method_decorator
+from django.core.files.base import ContentFile
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from apps.index.models import *
 from apps.index.forms import *
 from apps.index.utils import *
+from skimage.io import imread
+import numpy
+import cv2
+
 
 def resized_image(path, folder):   
-    try:
-        image = imread(path,plugin='matplotlib')
-        width = 250
-        height = 334
-        dim = (width, height)
-        resized = cv2.resize(image, dim, interpolation = cv2.INTER_AREA)
-        color_correct = cv2.cvtColor(resized, cv2.COLOR_BGR2RGB)
-        success, buffer = cv2.imencode(".jpg", color_correct)
-        new_image = ContentFile(buffer)
-        new_image.content_type = 'image/jpeg'
-        image_url = upload_image_file(new_image, folder)
-        return image_url
-    except:
-        image_url = upload_image_file(path, folder)
-        return image_url
+   
+    image = imread(path,plugin='matplotlib')
+    width = 250
+    height = 334
+    dim = (width, height)
+    resized = cv2.resize(image, dim, interpolation = cv2.INTER_AREA)
+    color_correct = cv2.cvtColor(resized, cv2.COLOR_BGR2RGB)
+    success, buffer = cv2.imencode(".jpg", color_correct)
+    new_image = ContentFile(buffer)
+    new_image.content_type = 'image/jpeg'
+    image_url = upload_image_file(new_image, folder)
+    return image_url
         
 
 class IndexView(ListView):

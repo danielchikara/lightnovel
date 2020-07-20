@@ -32,7 +32,7 @@
                                 <td>{{novel.name}}</td>
                                 <td>{{novel.chapter_novel.count}}</td>
                                 <td>
-                                    <a href="#">
+                                    <a href="{% url 'index:chapter_list' novel.pk %}">
                                         <button class="is-Button-View">
                                             <span class="fa fa-book"></span>
                                         </button>

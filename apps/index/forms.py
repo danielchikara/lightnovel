@@ -33,7 +33,7 @@ class UserNovelForm(forms.ModelForm):
 class NovelForm(forms.ModelForm):
     class Meta:
         model = Novel
-        exclude = ('image','status',)
+        exclude = ('image','status','user_novel',)
 
 
 class ChapterForm(forms.ModelForm):

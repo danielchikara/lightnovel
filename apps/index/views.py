@@ -25,7 +25,8 @@ def resized_image(path, folder):
         image_url = upload_image_file(new_image, folder)
         return image_url
     except:
-        return path
+        image_url = upload_image_file(path, folder)
+        return image_url
         
 
 class IndexView(ListView):
@@ -35,6 +36,9 @@ class IndexView(ListView):
     
     #def get_context_data(self, **kwargs):
         #context['pk_user'] = self.user.pk
+
+class ChapterView(TemplateView):
+    template_name = "chapters/view.html"
 
 
 class CreateRegister(CreateView):
@@ -97,7 +101,13 @@ class CreateNovel(CreateView):
     form_class = NovelForm
     
     
-     
+    def get_queryset(self):
+        user = self.request.user.id
+        queryset = Novel.objects.all()
+        queryset = queryset.filter(user_novel__user_profile=user)
+        return queryset
+
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['operation'] = 'Crear.'
@@ -106,6 +116,7 @@ class CreateNovel(CreateView):
         return context
 
     def form_valid(self, form):
+        form.instance.user_novel = self.request.user.personal_information
         image_url = self.request.FILES['image']
         image_url = resized_image(image_url,'novel/')
         form.instance.image = image_url            
@@ -121,7 +132,12 @@ class UpdateNovel(UpdateView):
     model = Novel
     form_class = NovelForm
     success_url = reverse_lazy('index:home')
-    
+
+    def get_queryset(self):
+        user = self.request.user.id
+        queryset = Novel.objects.all()
+        queryset = queryset.filter(user_novel__user_profile=user)
+        return queryset
    
 
     def get_context_data(self, **kwargs):
@@ -133,17 +149,26 @@ class UpdateNovel(UpdateView):
         return context
 
     def form_valid(self, form):
+        form.instance.user_novel = self.request.user.personal_information
         if self.request.FILES.get('image', False):
             image_url = self.request.FILES['image']
             image_url = resized_image(image_url,'novel/')
             form.instance.image = image_url
-        return super(UpdateUserNovel,self).form_valid(form)
+        return super(UpdateNovel,self).form_valid(form)
 
 @method_decorator(login_required(login_url=reverse_lazy('index:login')), name='dispatch')
 class ListNovel(ListView):
     template_name = 'novels/list.html'
     model = Novel
     context_object_name = 'novel_list'
+
+    def get_queryset(self):
+        user = self.request.user.id
+        print(user)
+        queryset = Novel.objects.all()
+        queryset = queryset.filter(user_novel__user_profile=user)
+        print(queryset)
+        return queryset
 
     
     
@@ -203,6 +228,7 @@ class ListChapter(ListView):
     model = Chapter 
     context_object_name = 'chapter_list'
 
+    
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

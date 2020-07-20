@@ -70,11 +70,7 @@ class UpdateUserNovel(UpdateView):
     form_class = UserNovelForm
     success_url = reverse_lazy('index:home')
     
-    def get_queryset(self):
-        user = self.request.user.id
-        queryset = User.objects.all()
-        queryset = queryset.filter(id=user)
-        return queryset
+    
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -100,11 +96,7 @@ class CreateNovel(CreateView):
     model = Novel
     form_class = NovelForm
     
-    def get_queryset(self):
-        user = self.request.user.id
-        queryset = User.objects.all()
-        queryset = queryset.filter(id=user)
-        return queryset
+    
      
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -130,11 +122,7 @@ class UpdateNovel(UpdateView):
     form_class = NovelForm
     success_url = reverse_lazy('index:home')
     
-    def get_queryset(self):
-        user = self.request.user.id
-        queryset = User.objects.all()
-        queryset = queryset.filter(id=user)
-        return queryset
+   
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -157,12 +145,7 @@ class ListNovel(ListView):
     model = Novel
     context_object_name = 'novel_list'
 
-    def get_queryset(self):
-        user = self.request.user.id
-        queryset = User.objects.all()
-        queryset = queryset.filter(id=user)
-        return queryset
-
+    
     
 
 
@@ -173,11 +156,7 @@ class CreateChapter(CreateView):
     form_class = ChapterForm
     success_url = reverse_lazy('index:home')
 
-    def get_queryset(self):
-        user = self.request.user.id
-        queryset = User.objects.all()
-        queryset = queryset.filter(id=user)
-        return queryset
+    
 
      
     def get_context_data(self, **kwargs):
@@ -201,11 +180,7 @@ class UpdateChapter(UpdateView):
     form_class = ChapterForm
     success_url = reverse_lazy('index:home')
 
-    def get_queryset(self):
-        user = self.request.user.id
-        queryset = User.objects.all()
-        queryset = queryset.filter(id=user)
-        return queryset
+    
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -228,11 +203,6 @@ class ListChapter(ListView):
     model = Chapter 
     context_object_name = 'chapter_list'
 
-    def get_queryset(self):
-        user = self.request.user.id
-        queryset = User.objects.all()
-        queryset = queryset.filter(id=user)
-        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -4,14 +4,22 @@
     <br><br>
     <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
         <br>
-        <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">Tus Historias.</h3>
+        <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">Tus Novelas.</h3>
+        <br>
+        <a href="{% url 'index:novel_create' %}">
+            <center>
+                <button class="is-Button-CreChap">
+                <span class="fa fa-gears"></span>  Crear Nueva Novela.
+            </button>
+            </center>
+        </a>
         <br>
         <div class="container-fluid is-TamanoContainerIntInd">
             <center>
                 <div class="table-responsive table-striped">
                     <table class="is-tableNov">
                         <thead class="is-headerTableNov">
-                            
+
                             <tr class="is-table-TamanoH">
                                 <th>Novela.</th>
                                 <th>Capitulos.</th>
@@ -24,7 +32,7 @@
                                 <td>{{novel.name}}</td>
                                 <td>{{novel.chapter_novel.count}}</td>
                                 <td>
-                                    <a href="{% url 'index:home' %}">
+                                    <a href="#">
                                         <button class="is-Button-View">
                                             <span class="fa fa-book"></span>
                                         </button>

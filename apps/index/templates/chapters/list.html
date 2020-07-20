@@ -7,15 +7,17 @@
         <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">{{title.name}}</h3>
         <br>
         <h6 class="text-lg-center" style="color: #fff;">
-           {{title.description}}
+            {{title.description}}
         </h6>
         <br>
-        <a href=" #">
-            <button class="is-Button-CreChap">
+        <a href="{% url 'index:chapter_create' title.pk %}">
+            <center>
+                <button class="is-Button-CreChap">
                 <span class="fa fa-gears"></span>  Crear Nuevo Capitulo.
             </button>
+            </center>
         </a>
-
+        <br>
         <div class="container-fluid is-TamanoContainerIntInd">
             <center>
                 <div class="table-responsive table-striped">

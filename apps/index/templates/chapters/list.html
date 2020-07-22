@@ -4,13 +4,15 @@
     <br><br>
     <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
         <br>
-        <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">{{title.name}}</h3>
+        {% for chapter in chapter_list %}
+        <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">{{chapter.novel.name}}</h3>
         <br>
         <h6 class="text-lg-center" style="color: #fff;">
-            {{title.description}}
+            {{chapter.novel.description}}
         </h6>
         <br>
-        <a href="{% url 'index:chapter_create' title.pk %}">
+        <a href="{% url 'index:chapter_create' chapter.novel.id %}">
+            {% endfor  %}
             <center>
                 <button class="is-Button-CreChap">
                 <span class="fa fa-gears"></span>  Crear Nuevo Capitulo.
@@ -30,7 +32,7 @@
                             </tr>
                         </thead>
                         <tbody class="is-Letra02">
-                            {% for chapter in list %}
+                            {% for chapter in chapter_list %}
                             <tr>
                                 <td>{{chapter.name}}</td>
                                 <td>

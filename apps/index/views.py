@@ -61,6 +61,7 @@ class CreateUserNovel(CreateView):
         return context
 
     def form_valid(self, form):
+        form.instance.rol_user = 1
         form.instance.user_profile = self.request.user
         image_url = self.request.FILES['image']
         image_url = upload_image_file(image_url,'userNovel/')

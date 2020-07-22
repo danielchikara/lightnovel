@@ -1,3 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView, CreateView,UpdateView,ListView
 
-# Create your views here.
+class DashboardView(TemplateView):
+    template_name = "index.html"

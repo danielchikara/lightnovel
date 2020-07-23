@@ -1,12 +1,17 @@
-document.querySelector('#submit').addEventListener('click',function(){
-    
-    let cliente = document.querySelector('#cliente').value;
-    let fecha = document.querySelector('#fecha').value;
-    let hora = document.querySelector('#hora').value;
-    let barbero = document.querySelector('#barbero').value;
-    let servicio = document.querySelector('#servicio').value;
+$(document).ready(function() {
 
-    let url = "https://api.whatsapp.com/send?phone=573205961632&text=*_Barberia Lider_*%0A*Reservas*%0A%0A*¿Cual es tu nombre?*%0A" + cliente + "%0A*Indica la fecha de tu reserva*%0A" + fecha + "%0A*Indica la hora de tu reserva*%0A" + hora + "%0A*Barbero de preferencia*%0A" + barbero + "%0A*¿Cual es el servicio que se desea realizar?*%0A" + servicio;
-    window.open(url);
+    $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+    });
+
+    $('#sidebarCollapse').on('click', function() {
+        // open or close navbar
+        $('#sidebar').toggleClass('active');
+        // close dropdowns
+        $('.collapse.in').toggleClass('in');
+        // and also adjust aria-expanded attributes we use for the open/closed arrows
+        // in our CSS
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+    });
 
 });

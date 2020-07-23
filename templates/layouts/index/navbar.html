@@ -25,11 +25,9 @@
                 </a>
                 <div class="dropdown-menu">
                     {% if user.personal_information %}
-                    <a class="dropdown-item is-letra-color01" href="{% url 'index:userupdate' user.personal_information.pk %}">actualizar perfil</a>
-                    <a class="dropdown-item is-letra-color01" href="{% url 'index:novel_list' %}">Mis Historias</a>
-                    {%else%}
-                    <a class="dropdown-item is-letra-color01" href="{% url 'index:user' %}">registrar </a>
-                    {% endif %}
+                    <a class="dropdown-item is-letra-color01" href="{% url 'index:userupdate' user.personal_information.pk %}">Actualizar Perfil.</a>
+                    <a class="dropdown-item is-letra-color01" href="{% url 'index:novel_list' %}">Mis Historias.</a> {%else%}
+                    <a class="dropdown-item is-letra-color01" href="{% url 'index:user' %}">Registrar.</a> {% endif %}
                 </div>
             </li>
             <li class="nav-item">

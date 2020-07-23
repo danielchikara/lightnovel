@@ -1,0 +1,253 @@
+{% extends 'layouts/dashboard/base.html' %} {% load static %} {% block content %}
+
+<section class="is-FontColor01">
+    <br><br>
+    <div class="container-fluid is-TamanoContainerCar">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+                <li data-target="#demo" data-slide-to="3"></li>
+                <li data-target="#demo" data-slide-to="4"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static '/images/caruselad01.png' %}" alt="Gestion de Usuarios" width="900" height="300">
+                    <div class="carousel-caption">
+                        <h3>Gestion de Usuarios.</h3>
+                        <p>En dicho apartado podras ver los usuarios registrados y algunas acciones.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/images/caruselad02.png' %}" alt="Gestion de Novelas" width="1100" height="500">
+                    <div class="carousel-caption">
+                        <h3>Gestion de Novelas.</h3>
+                        <p>En dicho apartado podras ver las novelas creadas en el sistema y algunas acciones.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/images/caruselad03.png' %}" alt="Gestion de Generos" width="1100" height="500">
+                    <div class="carousel-caption">
+                        <h3>Gestion de Generos.</h3>
+                        <p>En dicho apartado podras ver los generos creados en el sistema y algunas acciones.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/images/caruselad04.png' %}" alt="Gestion de Subgeneros" width="1100" height="500">
+                    <div class="carousel-caption">
+                        <h3>Gestion de Subgeneros.</h3>
+                        <p>En dicho apartado podras ver los generos creados en el sistema y algunas acciones.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/images/caruselad05.png' %}" alt="Gestion de Noticias" width="1100" height="500">
+                    <div class="carousel-caption">
+                        <h3>Gestion de Noticias.</h3>
+                        <p>En dicho apartado podras ver las noticiass creadas en el sistema y algunas acciones.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+    <br><br>
+
+    <div class="container-fluid is-Color01 is-TamanoContainerIndex" style="border-radius: 20px;">
+        <div class="container-fluid is-TamanoContainerIntInd">
+            <br><br>
+            <h3 class="text-lg-left" style="color: #fff; font-weight:bolder;">Novelas Recientes XD</h3>
+            <br>
+        </div>
+        <center>
+            <div class="table-responsive">
+                <table class="is-TamanoContainerIntInd">
+                    <tbody>
+                        <tr>
+                            {% for novel in novel_list %}
+                            <td>
+                                <div class="card img-fluid is-TamanoContainerCard">
+                                    <img class="card-img-top" src="{{novel.image}}" alt="Card image" style="width:100%">
+                                    <div class="card-img-overlay is-FontCard01XD">
+                                        <h4 class="card-title">{{novel.name}}</h4>
+                                        <center><a href="#demo1" class="btn btn-primary" data-toggle="collapse">Ver Descripcion...</a></center>
+                                        <div id="demo1" class="collapse">
+                                            {{novel.description}}
+                                        </div>
+                                        <div class="footer">
+                                            <a href="#"><input type="button" class="is-Button-LeerXD" value="Leeloxd"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                            </td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </center>
+    </div>
+
+    <br><br>
+
+    <div class="container-fluid is-Color01 is-TamanoContainerIndex" style="border-radius: 20px;">
+        <div class="container-fluid is-TamanoContainerIntInd">
+            <br><br>
+            <h3 class="text-lg-left" style="color: #fff; font-weight:bolder;">Usuarios Recientes XD</h3>
+            <br>
+        </div>
+        <center>
+            <div class="table-responsive">
+                <table class="is-TamanoContainerIntInd">
+                    <tbody>
+                        <tr>
+                            {% for novel in novel_list %}
+                            <td>
+                                <div class="card img-fluid is-TamanoContainerCard">
+                                    <img class="card-img-top" src="{{novel.image}}" alt="Card image" style="width:100%">
+                                    <div class="card-img-overlay is-FontCard01XD">
+                                        <h4 class="card-title">{{novel.name}}</h4>
+                                        <center><a href="#demo1" class="btn btn-primary" data-toggle="collapse">Ver Informacion.</a></center>
+                                        <div id="demo1" class="collapse">
+                                            Genero: Pedro. <br> Edad: 4. <br> Rol: Lector y Escritor?
+                                        </div>
+                                        <div class="footer">
+                                            <a href="#"><input type="button" class="is-Button-LeerXD" value="Actualizar"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                            </td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </center>
+    </div>
+
+    <br><br>
+
+    <div class="container-fluid is-Color01 is-TamanoContainerIndex" style="border-radius: 20px;">
+        <div class="container-fluid is-TamanoContainerIntInd">
+            <br><br>
+            <h3 class="text-lg-left" style="color: #fff; font-weight:bolder;">Generos Recientes XD</h3>
+            <br>
+        </div>
+        <center>
+            <div class="table-responsive">
+                <table class="is-TamanoContainerIntInd">
+                    <tbody>
+                        <tr>
+                            {% for novel in novel_list %}
+                            <td>
+                                <div class="card img-fluid is-TamanoContainerCard">
+                                    <img class="card-img-top" src="{{novel.image}}" alt="Card image" style="width:100%">
+                                    <div class="card-img-overlay is-FontCard01XD">
+                                        <h4 class="card-title">{{novel.name}}</h4>
+                                        <center><a href="#demo1" class="btn btn-primary" data-toggle="collapse">Ver Descripcion.</a></center>
+                                        <div id="demo1" class="collapse">
+                                            {{novel.description}}
+                                        </div>
+                                        <div class="footer">
+                                            <a href="#"><input type="button" class="is-Button-LeerXD" value="Editalo."></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                            </td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </center>
+    </div>
+
+    <br><br>
+
+    <div class="container-fluid is-Color01 is-TamanoContainerIndex" style="border-radius: 20px;">
+        <div class="container-fluid is-TamanoContainerIntInd">
+            <br><br>
+            <h3 class="text-lg-left" style="color: #fff; font-weight:bolder;">Subgeneros Recientes XD</h3>
+            <br>
+        </div>
+        <center>
+            <div class="table-responsive">
+                <table class="is-TamanoContainerIntInd">
+                    <tbody>
+                        <tr>
+                            {% for novel in novel_list %}
+                            <td>
+                                <div class="card img-fluid is-TamanoContainerCard">
+                                    <img class="card-img-top" src="{% static '/images/historiadefect.png' %}" alt="Card image" style="width:100%">
+                                    <div class="card-img-overlay is-FontCard01XD">
+                                        <h4 class="card-title">{{novel.name}}</h4>
+                                        <center><a href="#demo1" class="btn btn-primary" data-toggle="collapse">Ver Descripcion.</a></center>
+                                        <div id="demo1" class="collapse">
+                                            {{novel.description}}
+                                        </div>
+                                        <div class="footer">
+                                            <a href="#"><input type="button" class="is-Button-LeerXD" value="Editalo."></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                            </td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </center>
+    </div>
+
+    <br><br>
+
+    <div class="container-fluid is-Color01 is-TamanoContainerIndex" style="border-radius: 20px;">
+        <div class="container-fluid is-TamanoContainerIntInd">
+            <br><br>
+            <h3 class="text-lg-left" style="color: #fff; font-weight:bolder;">Noticias Recientes XD</h3>
+            <br>
+        </div>
+        <center>
+            <div class="table-responsive">
+                <table class="is-TamanoContainerIntInd">
+                    <tbody>
+                        <tr>
+                            {% for novel in novel_list %}
+                            <td>
+                                <div class="card img-fluid is-TamanoContainerCard">
+                                    <img class="card-img-top" src="{{novel.image}}" alt="Card image" style="width:100%">
+                                    <div class="card-img-overlay is-FontCard01XD">
+                                        <h4 class="card-title">{{novel.name}}</h4>
+                                        <center><a href="#demo1" class="btn btn-primary" data-toggle="collapse">Ver Descripcion.</a></center>
+                                        <div id="demo1" class="collapse">
+                                            {{novel.description}}
+                                        </div>
+                                        <div class="footer">
+                                            <a href="#"><input type="button" class="is-Button-LeerXD" value="Editala."></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                            </td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </center>
+    </div>
+
+    <br><br>
+
+</section>
+
+{% endblock content %}

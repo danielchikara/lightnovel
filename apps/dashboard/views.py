@@ -9,7 +9,7 @@ from django.urls import reverse_lazy, reverse
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from apps.index.models import *
-from apps.index.forms import *
+from apps.dashboard.forms import *
 from apps.index.utils import *
 from skimage.io import imread
 import numpy
@@ -22,9 +22,10 @@ class UserGestionView(ListView):
     template_name = "users/usergestion/list.html"
     model = User
     context_object_name = 'user_list'
+    
 
 class CreateRegister(CreateView):
-    template_name = "user/register.html"
+    template_name = "users/usergestion/register.html"
     model = User
     form_class = RegisterForm
     success_url = reverse_lazy('dashboard:home')

@@ -1,11 +1,5 @@
 {% extends 'layouts/dashboard/base.html' %} {% load static %} {% block content %}
 
-<script>
-    $(document).ready(function() {
-        $('#tableuser').DataTable();
-    });
-</script>
-
 <section class="is-FontColor01">
     <br><br>
     <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
@@ -13,9 +7,11 @@
         <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">Gestion de Usuarios.</h3>
         <br>
         <center>
-            <button class="is-Button-CreChap" data-toggle="modal" data-target="#myModal">
-                <span class="fa fa-gears"></span>  Crear Nuevo Usuario.
-            </button>
+            <a href="{% url 'dashboard:create_register' %}">
+                <button class="is-Button-CreChap">
+                    <span class="fa fa-gears"></span>  Crear Nuevo Usuario.
+                </button>
+            </a>
         </center>
 
         <br>
@@ -64,123 +60,5 @@
     </div>
     <br><br>
 </section>
-
-<div class="modal fade" id="myModal">
-    <div class="modal-dialog is-TamanoContainer" style="border-radius: 20px;">
-        <div class=" modal-content is-Color01">
-
-            <div class="modal-header ">
-                <h3 class="text-lg-center " style="color: #fff; font-weight:bolder; ">Registro de Usuario.</h3>
-                <button type="button " class="close " data-dismiss="modal ">&times;</button>
-            </div>
-
-            <div class="modal-body ">
-                <form method="post " enctype="multipart/form-data " name="form_register ">
-                    {% csrf_token %}
-                    <div class="input-group mb-3 ">
-                        {% if form.non_field_errors %}
-                        <ul class="errorlist ">
-                            {% for error in form.non_field_errors %}
-                            <li><strong class="text-danger ">{{ error|escape }}</strong></li>
-                            {% endfor %}
-                        </ul>
-                        {% endif %}
-
-                        <input type="email " class="form-control " placeholder="Correo " name="email " id="id_email " {% if form.email.value %} value="{{form.email.value}} " {% endif %} required>
-                        <div class="input-group-append ">
-                            <div class="input-group-text ">
-                                <span class="fas fa-envelope "></span>
-                            </div>
-                        </div>
-                    </div>
-                    {% if form.email.help_text %}
-                    <p class="help ">{{ form.email.help_text|safe }}</p>
-                    {% endif %} {% if form.email.errors %}
-                    <ul class="errorlist ">
-                        {% for error in form.email.errors %}
-                        <li><strong class="text-danger ">{{ error|escape }}</strong></li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-
-                    <div class="input-group mb-3 ">
-                        <input type="password " class="form-control " placeholder="Contraseña " name="password1 " id="id_password1 " {% if form.password1.value %} value="{{form.password1.value}} " {% endif %} required>
-                        <div class="input-group-append ">
-                            <div class="input-group-text ">
-                                <span class="fas fa-lock "></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {% if form.password1.errors %}
-                    <ul class="errorlist ">
-                        {% for error in form.password1.errors %}
-                        <li><strong class="text-danger ">{{ error|escape }}</strong></li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                    <div class="input-group mb-3 ">
-                        <input type="password " class="form-control " placeholder="Confirmación de contraseña " name="password2 " id="id_password2 " {% if form.password2.value %} value="{{form.password2.value}} " {% endif %} required>
-                        <div class="input-group-append ">
-                            <div class="input-group-text ">
-                                <span class="fas fa-lock "></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {% if form.password2.help_text %}
-                    <p class="help ">{{ form.password2.help_text|safe }}</p>
-                    {% endif %} {% if form.password2.erros %}
-                    <ul class="errorlist ">
-                        {% for error in form.password2.errors %}
-                        <li><strong class="text-danger ">{{ error|escape }}</strong></li>
-                        {% endfor %}
-                    </ul>
-
-                    {% endif %}
-
-                    <div class="input-group mb-3 ">
-                        <select class="form-control " data-style="select-with-transition " name="rol_user " id="id_rol_user " required>
-                                    <div class="input-group-append ">
-                                        <div class="input-group-text ">
-                                            <span class="fas fa-grip-lines "></span>
-                                        </div>
-                                    </div>
-                                <option value=''>Elija el Rol de Usuario.</option>
-                                {% for x,y in form.fields.rol_user.choices %}
-                                <option value="{{ x }} "{% if form.rol_user.value == x %} selected{% endif %} >
-                                {{ y }}
-                                </option>
-                                {% endfor %}
-                            </select> {% if form.rol_user.help_text %}
-                        <p class="help ">{{ form.rol_user.help_text|safe }}</p>
-                        {% endif %} {% if form.rol_user.errors %}
-                        <ul class="errorlist ">
-                            {% for error in form.rol_user.errors %}
-                            <li><strong class="text-danger ">{{ error|escape }}</strong></li>
-                            {% endfor %}
-                        </ul>
-                        {% endif %}
-                    </div>
-            </div>
-            <div class="container-fluid is-TamanoContainerInt is-alinea-buttons ">
-                <button type="submit " class="is-Button-AceptarXD ">Regístrar</button>
-
-                <a href="{% url 'index:home' %} ">
-                    <input type="button " class="is-Button-CancelarXD" value="Cancelar">
-                </a>
-                <button type="reset " class="is-Button-BorrarXD ">Borrar</button>
-            </div>
-            </form>
-            <br><br>
-        </div>
-
-        <!-- Modal footer -->
-        <div class="modal-footer is-Color01 ">
-            <button type="button " class="btn btn-danger" data-dismiss="modal ">Cerrar</button>
-        </div>
-
-    </div>
-</div>
 
 {% endblock content %}

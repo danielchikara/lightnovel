@@ -53,32 +53,32 @@
                 {% endif %}
                 <div class="input-group mb-3">
                     <input type="password" class="form-control" placeholder="Confirmación de contraseña" name="password2" id="id_password2" {% if form.password2.value %} value="{{form.password2.value}}" {% endif %} required>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
+                    <div class="input-group-append ">
+                        <div class="input-group-text ">
+                            <span class="fas fa-lock "></span>
                         </div>
                     </div>
                 </div>
 
                 {% if form.password2.help_text %}
-                <p class="help">{{ form.password2.help_text|safe }}</p>
+                <p class="help ">{{ form.password2.help_text|safe }}</p>
                 {% endif %} {% if form.password2.erros %}
-                <ul class="errorlist">
+                <ul class="errorlist ">
                     {% for error in form.password2.errors %}
-                    <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                    <li><strong class="text-danger ">{{ error|escape }}</strong></li>
                     {% endfor %}
                 </ul>
 
                 {% endif %}
         </div>
-        <div class="container-fluid is-TamanoContainerInt is-alinea-buttons">
-            <button type="submit" class="is-Button-AceptarXD">Regístrate</button>
+        <div class="container-fluid is-TamanoContainerInt is-alinea-buttons ">
+            <button type="submit" class="is-Button-AceptarXD" onclick="modalOption()">Regístrate</button>
 
-            <a href="{% url 'index:home' %}">
-                <input type="button" class="is-Button-CancelarXD"  value="Cancelar">
+            <a href="{% url 'index:home' %} ">
+                <input type="button" class="is-Button-CancelarXD" value="Cancelar">
             </a>
-            <button type="reset" class="is-Button-BorrarXD">Borrar</button> 
-        
+            <button type="reset" class="is-Button-BorrarXD">Borrar</button>
+
         </div>
 
         </form>
@@ -86,6 +86,30 @@
     </div>
     <br><br><br>
 </section>
+
+<script>
+    function modalOption() {
+        if ($('#id_email').val().length == 0) {
+            alert("por favor escriba el email");
+        } else if ($('#id_password1').val().length == 0) {
+            alert("por favor escriba la contraseña")
+        } else if ($('#id_password2').val().length == 0) {
+            alert("por favor escribe la verificación de contraseña ")
+        } else if ($('#id_password1').val() != $('#id_password2').val()) {
+            console.log($('#id_password1'));
+            console.log($('#id_password2'));
+            alert("Las contraseñas deben coincidir")
+
+        } else {
+            console.log("me ejecuto pero no sirvo ");
+            $("#myModal").modal('show');
+        }
+    }
+
+    function formRegister() {
+        document.form_register.submit()
+    }
+</script>
 
 
 {% endblock content %}

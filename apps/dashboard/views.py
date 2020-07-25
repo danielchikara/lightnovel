@@ -5,5 +5,7 @@ class DashboardView(TemplateView):
     template_name = "users/index.html"
 
 class UserGestionView(TemplateView):
-    template_name = "user/usergestion/list.html"
+    template_name = "users/usergestion/list.html"
+    model = User
+    context_object_name = 'user_list'
 

@@ -12,7 +12,7 @@
         <br>
         <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">Gestion de Usuarios.</h3>
         <br>
-        <a href="{% url 'index:novel_create' %}">
+        <a href="{% url 'index:user_create' %}">
             <center>
                 <button class="is-Button-CreChap">
                 <span class="fa fa-gears"></span>  Crear Nuevo Usuario.
@@ -27,16 +27,16 @@
                         <thead class="is-headerTableNov">
 
                             <tr class="is-table-TamanoH">
-                                <th>Nombre de Usuario.</th>
+                                <th>Email de Usuario.</th>
                                 <th>Rol de Usuario.</th>
                                 <th>Acciones.</th>
                             </tr>
                         </thead>
                         <tbody class="is-Letra02">
-                            {% for novel in novel_list %}
+                            {% for user in user_list %}
                             <tr>
-                                <td>{{novel.name}}</td>
-                                <td>{{novel.chapter_novel.count}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.rol_user}}</td>
                                 <td>
                                     <a href="{% url 'index:chapter_list' novel.pk %}">
                                         <button class="is-Button-View">

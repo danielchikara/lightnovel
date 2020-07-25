@@ -22,6 +22,25 @@ class UserGestionView(ListView):
     template_name = "users/usergestion/list.html"
     model = User
     context_object_name = 'user_list'
+
+class NovelGestionView(ListView):
+    template_name = "users/novelgestion/list.html"
+    model = Novel
+    context_object_name = 'novel_list'
+
+
+class ListChapter(ListView):
+    template_name = 'users/novelgestion/view.html'
+    model = Chapter 
+    context_object_name = 'chapter_list'
+
+    def get_queryset(self):
+        user = self.request.user.id
+        queryset = Chapter.objects.all()
+        queryset = queryset.filter(novel__user_novel__user_profile=user)
+        return queryset
+
+    
     
 
 class CreateRegister(CreateView):

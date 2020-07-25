@@ -1,0 +1,50 @@
+{% extends 'layouts/dashboard/base.html' %} {% load static %} {% block content %}
+
+<section class="is-FontColor01">
+    <br><br>
+    <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
+        <br>
+        <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">Gestion de Novelas.</h3>
+        <br>
+        <div class="container-fluid is-TamanoContainerIntInd">
+            <center>
+                <div class="table-responsive table-striped">
+                    <table id="tableuser" class="is-tableNov">
+                        <thead class="is-headerTableNov">
+
+                            <tr class="is-table-TamanoH">
+                                <th>Novela.</th>
+                                <th>Capitulos.</th>
+                                <th>Acciones.</th>
+                            </tr>
+                        </thead>
+                        <tbody class="is-Letra02">
+                            {% for novel in novel_list %}
+                            <tr>
+                                <td>{{novel.name}}</td>
+                                <td>{{novel.chapter_novel.count}}</td>
+                                <td>
+                                    <a href="{% url 'dashboard:novel_chapter' novel.pk %}">
+                                        <button class="is-Button-View">
+                                            <span class="fa fa-book"></span>
+                                        </button>
+                                    </a>
+                                    <a href="{% url 'index:home' %}">
+                                        <button class="is-Button-Elm">
+                                            <span class="fa fa-times"></span>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </center>
+            <br>
+        </div>
+    </div>
+    <br><br>
+</section>
+
+{% endblock content %}

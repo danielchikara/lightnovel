@@ -14,7 +14,7 @@ path('index/user_novel/update/<pk>/', views.UpdateUserNovel.as_view(), name='use
 path('index/novel/create/', views.CreateNovel.as_view(), name='novel_create'),
 path('index/novel/update/<pk>/', views.UpdateNovel.as_view(), name='novel_update'),
 path('index/novel/list/', views.ListNovel.as_view(), name='novel_list'),
-path('index/chapter/create/<pk>', views.CreateChapter.as_view(), name='chapter_create'),
+path('index/chapter/create/<pk>/', views.CreateChapter.as_view(), name='chapter_create'),
 path('index/chapter/update/<pk>/', views.UpdateChapter.as_view(), name='chapter_update'),
 path('index/chapter/list/<pk>/', views.ListChapter.as_view(), name='chapter_list'),
 

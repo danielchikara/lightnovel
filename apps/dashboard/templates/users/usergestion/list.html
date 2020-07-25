@@ -1,4 +1,4 @@
-{% extends 'layouts/index/base.html' %} {% load static %} {% block content %}
+{% extends 'layouts/dashboard/base.html' %} {% load static %} {% block content %}
 
 <script>
     $(document).ready(function() {
@@ -12,7 +12,7 @@
         <br>
         <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">Gestion de Usuarios.</h3>
         <br>
-        <a href="{% url 'index:user_create' %}">
+        <a href="{% url 'dashboard:create_register' %}">
             <center>
                 <button class="is-Button-CreChap">
                 <span class="fa fa-gears"></span>  Crear Nuevo Usuario.
@@ -38,17 +38,17 @@
                                 <td>{{user.email}}</td>
                                 <td>{{user.rol_user}}</td>
                                 <td>
-                                    <a href="{% url 'index:chapter_list' novel.pk %}">
+                                    <a href="">
                                         <button class="is-Button-View">
                                             <span class="fa fa-book"></span>
                                         </button>
                                     </a>
-                                    <a href="{% url 'index:novel_update' novel.pk %}">
+                                    <a href="{% url 'dashboard:update_register' user.pk %}">
                                         <button class="is-Button-Mod">
                                             <span class="fa fa-gears"></span>
                                         </button>
                                     </a>
-                                    <a href="{% url 'index:home' %}">
+                                    <a href="">
                                         <button class="is-Button-Elm">
                                             <span class="fa fa-times"></span>
                                         </button>

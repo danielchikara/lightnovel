@@ -11,7 +11,7 @@ from django import forms
 class RegisterForm(UserCreationForm):
     class Meta:
         model = User 
-        fields = ('email','password1','password2',)
+        fields = ('rol_user','email','password1','password2',)
 
     def save(self, commit=True):   
         instance= super(UserCreationForm, self).save(commit=False) # Call the real save() method
@@ -27,7 +27,7 @@ class RegisterForm(UserCreationForm):
 class UserNovelForm(forms.ModelForm):
     class Meta:
         model = UserNovel
-        exclude = ('user_profile','rol_user','image','status',)
+        exclude = ('user_profile','image','status',)
 
 
 class NovelForm(forms.ModelForm):

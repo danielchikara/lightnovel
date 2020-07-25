@@ -16,7 +16,15 @@ class SocialUserManager(BaseUserManager):
         user.save()
         return user
 
+class RolUser(models.Model):
+    rol_user_name = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.rol_user_name
+    
+
 class User(AbstractUser):
+    rol_user= models.ForeignKey(RolUser, related_name="rol_users", on_delete=models.CASCADE,default=1) 
     username = None
     email = models.EmailField('email address',  unique=True, db_index=True)
     USERNAME_FIELD = 'email'
@@ -27,17 +35,12 @@ class User(AbstractUser):
     def __str__(self):
         return self.email
 
-class RolUser(models.Model):
-    rol_user_name = models.CharField(max_length=50)
-    
-    def __str__(self):
-        return self.rol_user_name
+
     
        
 class UserNovel(models.Model):
     user_profile = models.OneToOneField(User, on_delete=models.CASCADE, related_name="personal_information") 
-    username = models.CharField(max_length=150)
-    rol_user= models.ForeignKey(RolUser, related_name="rol_users", on_delete=models.CASCADE,default=1)    
+    username = models.CharField(max_length=150)   
     status = models.BooleanField(default=True)
     gender = models.CharField(max_length=150)
     image = models.CharField(max_length=500)

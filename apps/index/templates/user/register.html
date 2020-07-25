@@ -1,5 +1,25 @@
 {% extends 'layouts/index/base.html' %} {% load static %} {% block content %}
+<!-- Modal -->
 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">HABEAS DATA</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="false">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body;" style="padding: 15px;">
+                Ley de Protección de Datos Personales: “La autorización suministrada en el presente formulario faculta a Deloitte para que dé a sus datos aquí recopilados el tratamiento señalado en la “Política de Privacidad para el Tratamiento de Datos Personales” de Deloitte, el cual incluye, entre otras, el envío de información promocional, así como la invitación a eventos. El titular de los datos podrá, en cualquier momento, solicitar que la información sea modificada, actualizada o retirada de las bases de datos de Deloitte.
+            </div>
+            <div class="modal-footer">
+                <a href="" class="text-center"><button type="button" class="btn btn-default" data-dismiss="modal">RECHAZAR</button></a>
+                <a onclick="formRegister()" class="text-center"><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal"> ACEPTO TERMINOS Y CONDICIONES</button></a>
+            </div>
+        </div>
+    </div>
+</div>
 <section class="is-FontColor01">
     <br><br>
     <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
@@ -72,7 +92,7 @@
                 {% endif %}
         </div>
         <div class="container-fluid is-TamanoContainerInt is-alinea-buttons ">
-            <button type="submit" class="is-Button-AceptarXD" onclick="modalOption()">Regístrate</button>
+            <button type="button" class="is-Button-AceptarXD" onclick="modalOption()">Regístrate</button>
 
             <a href="{% url 'index:home' %} ">
                 <input type="button" class="is-Button-CancelarXD" value="Cancelar">
@@ -86,7 +106,6 @@
     </div>
     <br><br><br>
 </section>
-
 <script>
     function modalOption() {
         if ($('#id_email').val().length == 0) {
@@ -96,8 +115,6 @@
         } else if ($('#id_password2').val().length == 0) {
             alert("por favor escribe la verificación de contraseña ")
         } else if ($('#id_password1').val() != $('#id_password2').val()) {
-            console.log($('#id_password1'));
-            console.log($('#id_password2'));
             alert("Las contraseñas deben coincidir")
 
         } else {

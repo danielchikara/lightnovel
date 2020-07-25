@@ -35,13 +35,11 @@ class ListChapter(ListView):
     context_object_name = 'chapter_list'
 
     def get_queryset(self):
-        user = self.request.user.id
+        user = self.kwargs['pk']
         queryset = Chapter.objects.all()
-        queryset = queryset.filter(novel__user_novel__user_profile=user)
+        queryset = queryset.filter(novel=user)
         return queryset
 
-    
-    
 
 class CreateRegister(CreateView):
     template_name = "users/usergestion/register.html"
@@ -55,5 +53,13 @@ class UpdateRegister(UpdateView):
     model = User
     form_class = RegisterForm
     success_url = reverse_lazy('dashboard:home')
+
+def get_status(request,pk):
+    fliter = pk
+    instance =  Novel.objects.filter(pk=fliter)
+    instance.update(status=False)
+    return redirect('dashboard:home')
+
+
     
 

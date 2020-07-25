@@ -35,6 +35,11 @@ class IndexView(ListView):
     model = Novel
     context_object_name = 'novel_list'
     
+    def get_queryset(self):
+        queryset = Novel.objects.all()
+        queryset = queryset.filter(status=True)
+        return queryset
+    
     
 
 class ChapterView(TemplateView):

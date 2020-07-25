@@ -273,7 +273,7 @@ table {
     background-color: #FFF;
     border: 2px solid #000;
     color: #000;
-    width: 40%;
+    width: 30%;
     height: 50px;
     border-radius: 5px;
 }
@@ -281,6 +281,54 @@ table {
 .is-Button-CreChap:hover {
     background-color: #00b909;
     border: 2px solid #0b8100;
+    color: #fff;
+    cursor: pointer;
+}
+
+.is-Button-ViewNor {
+    background-color: #FFF;
+    border: 2px solid #000;
+    color: #000;
+    width: 30%;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.is-Button-ViewNor:hover {
+    background-color: #FFCA28;
+    border: 2px solid #EF6C00;
+    color: #fff;
+    cursor: pointer;
+}
+
+.is-Button-ModNor {
+    background-color: #FFF;
+    border: 2px solid #000;
+    color: #000;
+    width: 30%;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.is-Button-ModNor:hover {
+    background-color: #28a9ff;
+    border: 2px solid #0030cf;
+    color: #fff;
+    cursor: pointer;
+}
+
+.is-Button-Camb {
+    background-color: #FFF;
+    border: 2px solid #000;
+    color: #000;
+    width: 20%;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.is-Button-Camb:hover {
+    background-color: #dd1054;
+    border: 2px solid #860016;
     color: #fff;
     cursor: pointer;
 }

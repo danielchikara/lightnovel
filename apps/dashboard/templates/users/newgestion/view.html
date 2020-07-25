@@ -1,27 +1,16 @@
-{% extends 'layouts/index/base.html' %} {% load static %} {% block content %}
+{% extends 'layouts/dashboard/base.html' %} {% load static %} {% block content %}
 
 <section class="is-FontColor01">
     <br><br>
     <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
         <br>
-        <a href="#demo" class="btn is-Button-Camb" data-toggle="collapse">Cambia de Color de Fondo.</a>
-        <div id="demo" class="collapse is-alinea-buttons">
-            <button type="button" class="btn btn-outline-primary">Primary</button>
-            <button type="button" class="btn btn-outline-secondary">Secondary</button>
-            <button type="button" class="btn btn-outline-success">Success</button>
-            <button type="button" class="btn btn-outline-info">Info</button>
-        </div>
-        <br><br>
-        <div class="container-fluid is-alinea-buttons" style="width: 100%; background-color: white;">
-            <br>
-            <img class="" id="image_preview" style='width: 90%; height: 40%; 
-            border-radius: 10px;' src="{% static '/images/chapterdef.png' %}">
-            <br><br>
-        </div>
         <div class="container-fluid is-TamanoContainerInt">
             <br>
-            <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">Sucia y sus cosas</h3>
+            <img id="image_preview" style='width: 80%; 
+                object-fit: contain; border-radius: 10px;' src="{% static '/images/historiadefect.png' %}">
             <br>
+            <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">Sucia y sus cosas</h3>
+            <br><br>
             <h6 style="color: #fff; text-align: justify;">
                 La película se inicia con los créditos finales de The Human Centipede (First Sequence). La cámara se aleja, para mostrar que la película está siendo reproducida en un ordenador portátil por un hombre en la cabina de vigilancia de un estacionamiento. Se
                 trata de un hombre de nacionalidad británica llamado Martin que sufre de asma, sobrepeso, mediana edad, reducida estatura y una enfermedad mental. Al comienzo de la película se muestra como Martin va atrapando a sus víctimas. La primera
@@ -29,12 +18,12 @@
                 por Martin en el mismo almacén, donde también yacen sus otras víctimas.
             </h6>
             <br>
-            <div class="container-fluid is-alinea-buttons" style="width: 100%;">
+            <div class="container-fluid is-TamanoContainerInt is-alinea-buttons">
                 <a href="{% url 'index:home' %}">
-                    <input type="button" class="is-Button-ModNor" value="Anterior">
+                    <input type="button" class="is-Button-Mod" value="Anterior">
                 </a>
                 <a href="{% url 'index:home' %}">
-                    <input type="button" class="is-Button-ViewNor" value="Novela">
+                    <input type="button" class="is-Button-Elm" value="Novela">
                 </a>
                 <a href="{% url 'index:home' %}">
                     <input type="button" class="is-Button-CreChap" value="Siguiente">

@@ -1,0 +1,123 @@
+{% extends 'layouts/dashboard/base.html' %} {% load static %} {% block content %}
+
+<section class="is-FontColor01">
+    <br><br>
+    <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
+        <br>
+        <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">{{title1}}</h3>
+        <br>
+        <div class="container-fluid is-TamanoContainerInt">
+
+            <form method="post" enctype="multipart/form-data" name="form_register">
+                {% csrf_token %}
+                <div class="input-group mb-3">
+                    {% if form.non_field_errors %}
+                    <ul class="errorlist">
+                        {% for error in form.non_field_errors %}
+                        <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <div align="center">
+                        {% if image %}
+                        <img id="image_preview" style='height: 40%; width: 40%; object-fit: contain; border-radius: 10px;' src="{{image}}" /> {% else %}
+                        <img id="image_preview" style='height: 40%; width: 40%; object-fit: contain; border-radius: 10px;' /> {% endif %}
+                    </div>
+                    <br>
+                    <input type="file" class="form-control" name="image" id="id_image" {% if not image %} required {% endif %}>
+                </div>
+                <script>
+                    $("document").ready(function() {
+                        $("#id_image").change(function() {
+                            var file = $('#id_image')[0].files[0];
+                            var reader = new FileReader();
+                            reader.readAsDataURL(file);
+                            reader.onload = function(e) {
+                                var img = $('#image_preview');
+                                img.attr('src', this.result);
+                            }
+                        });
+                    });
+                </script>
+                {% if form.image.errors %}
+                <ul class="errorlist">
+                    {% for error in form.image.errors %}
+                    <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Nombre de Genero." name="name" id="id_name" {% if form.name.value %} value="{{form.name.value}}" {% endif %} required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fa fa-bank"></span>
+                        </div>
+                    </div>
+                </div>
+                {% if form.name.help_text %}
+                <p class="help">{{ form.name.help_text|safe }}</p>
+                {% endif %} {% if form.name.errors %}
+                <ul class="errorlist">
+                    {% for error in form.name.errors %}
+                    <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <div class="input-group mb-3">
+                    <textarea class="form-control" rows="5" style="resize:none;" id="comment" placeholder="Descripcion." name="description" id="id_description" {% if form.description.value %} value="{{form.description.value}}" {% endif %} required></textarea>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fa fa-bitbucket"></span>
+                        </div>
+                    </div>
+                </div>
+
+                {% if form.description.errors %}
+                <ul class="errorlist">
+                    {% for error in form.description.errors %}
+                    <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <div class="container-fluid is-alinea-buttons is-TamanoContainerPlubi">
+                    <br>
+                    <div class="form-check" style="color: black;">
+                        <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" name="status" id="id_status" 
+                      value="true" {% if form.status.value == True %} checked {% endif %}>Activo
+                    </label>
+                    </div>
+                    <br>
+                </div>
+
+                {% if form.status.errors %}
+                <ul class="errorlist">
+                    {% for error in form.status.errors %}
+                    <li><strong class="text-danger">{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <br>
+                <div class="container-fluid is-TamanoContainerInt is-alinea-buttons">
+                    <button type="submit" class="is-Button-AceptarXD">{{operation}}</button>
+                    <a href="{% url 'index:home' %}">
+                        <input type="button" class="is-Button-CancelarXD" value="Cancelar">
+                    </a>
+                    <button type="reset" class="is-Button-BorrarXD">Borrar</button>
+
+                </div>
+            </form>
+            <br>
+        </div>
+        <br>
+    </div>
+    <br><br>
+</section>
+{% endblock content %}

@@ -1,0 +1,58 @@
+{% extends 'layouts/dashboard/base.html' %} {% load static %} {% block content %}
+
+<section class="is-FontColor01">
+    <br><br>
+    <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
+        <br>
+        <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">Gestion de Generos.</h3>
+        <br>
+        <a href="{% url 'dashboard:genre_create' %}">
+            <center>
+                <button class="is-Button-CreChap">
+                <span class="fa fa-gears"></span>  Crear Nuevo Genero.
+            </button>
+            </center>
+        </a>
+        <br>
+        <div class="container-fluid is-TamanoContainerIntInd">
+            <center>
+                <div class="table-responsive table-striped">
+                    <table id="tableuser" class="is-tableNov">
+                        <thead class="is-headerTableNov">
+
+                            <tr class="is-table-TamanoH">
+                                <th>Nombre de Genero.</th>
+                                <th>Subgeneros Asociados.</th>
+                                <th>Acciones.</th>
+                            </tr>
+                        </thead>
+                        <tbody class="is-Letra02">
+                            {% for genre in genre_list %}
+                            <tr>
+                                <td>{{genre.name}}</td>
+                                <td>{{genre.subgenre_novel.count}}</td>
+                                <td>
+                                    <a href="{% url 'dashboard:novel_chapter' novel.pk %}">
+                                        <button class="is-Button-Mod">
+                                            <span class="fa fa-gears"></span>
+                                        </button>
+                                    </a>
+                                    <a href="{% url 'index:home' %}">
+                                        <button class="is-Button-Elm">
+                                            <span class="fa fa-times"></span>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </center>
+            <br><br>
+        </div>
+    </div>
+    <br><br>
+</section>
+
+{% endblock content %}

@@ -1,34 +1,51 @@
 {% extends 'layouts/dashboard/base.html' %} {% load static %} {% block content %}
 
+<script>
+    function colorChange() {
+        var mydiv = document.getElementById("pedro");
+        var selectValue = document.getElementById("id_changeColor").value;
+        mydiv.style.backgroundColor = selectValue;
+    }
+</script>
+
 <section class="is-FontColor01">
     <br><br>
-    <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
+    <div class="container-fluid is-TamanoContainer" id="pedro" style="color: #FFF!important;
+    background-color: #DC143B!important; border-radius: 20px;">
         <br>
+        <div class="container-fluid is-alinea-buttons">
+            <a href="#demo" data-toggle="collapse">
+                <button class="is-Button-Camb">
+                <span class="fa fa-gears"></span>  Cambia de Color de Fondo..
+            </button>
+            </a>
+            <br>
+            <div id="demo" class="collapse input-group" style="width: 50%;">
+                <select class="form-control" id="id_changeColor" name="changeColor" onchange="colorChange()">
+                <option value="#DC143B">Original.</option>
+                <option value="#878787">Gris Claro.</option>
+                <option value="black">Negro.</option>
+                <option value="#52cbff">Azul Claro.</option>
+              </select>
+            </div>
+        </div>
+        <br><br>
+        <div class="container-fluid is-alinea-buttons" style="width: 100%; background-color: white;">
+            <br>
+            <img class="" id="image_preview" style='width: 90%; height: 40%; 
+            border-radius: 10px;' src="{% static '/images/chapterdef.png' %}">
+            <br><br>
+        </div>
         <div class="container-fluid is-TamanoContainerInt">
             <br>
-            <img id="image_preview" style='width: 80%; 
-                object-fit: contain; border-radius: 10px;' src="{% static '/images/historiadefect.png' %}">
-            <br>
             <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">Sucia y sus cosas</h3>
-            <br><br>
+            <br>
             <h6 style="color: #fff; text-align: justify;">
                 La película se inicia con los créditos finales de The Human Centipede (First Sequence). La cámara se aleja, para mostrar que la película está siendo reproducida en un ordenador portátil por un hombre en la cabina de vigilancia de un estacionamiento. Se
                 trata de un hombre de nacionalidad británica llamado Martin que sufre de asma, sobrepeso, mediana edad, reducida estatura y una enfermedad mental. Al comienzo de la película se muestra como Martin va atrapando a sus víctimas. La primera
                 de ellas es una pareja de adolescentes al cual observa desde una cámara de vigilancia donde trabaja. La segunda de las víctimas se trata de una persona que pretende alquilar un almacén a Martin, segundos después es atrapado y maniatado
                 por Martin en el mismo almacén, donde también yacen sus otras víctimas.
             </h6>
-            <br>
-            <div class="container-fluid is-TamanoContainerInt is-alinea-buttons">
-                <a href="{% url 'index:home' %}">
-                    <input type="button" class="is-Button-Mod" value="Anterior">
-                </a>
-                <a href="{% url 'index:home' %}">
-                    <input type="button" class="is-Button-Elm" value="Novela">
-                </a>
-                <a href="{% url 'index:home' %}">
-                    <input type="button" class="is-Button-CreChap" value="Siguiente">
-                </a>
-            </div>
         </div>
         <br><br>
     </div>

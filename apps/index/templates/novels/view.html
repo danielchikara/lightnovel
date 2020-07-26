@@ -19,12 +19,20 @@
 
                             <tr class="is-table-TamanoH">
                                 <th>Titulo.</th>
+                                <th>Accion.</th>
                             </tr>
                         </thead>
                         <tbody class="is-Letra02">
                             {% for chapter in chapter_list %}
                             <tr>
                                 <td>{{chapter.name}}</td>
+                                <td>
+                                    <a href="{% url 'index:chapter_view' novel.pk %}">
+                                        <button class="is-Button-View">
+                                            <span class="fa fa-book"></span>
+                                        </button>
+                                    </a>
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>

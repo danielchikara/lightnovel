@@ -1,0 +1,40 @@
+{% extends 'layouts/index/base.html' %} {% load static %} {% block content %}
+
+<section class="is-FontColor01">
+    <br><br>
+    <div class="container-fluid is-Color01 is-TamanoContainerIndex" style="border-radius: 20px;">
+        <div class="container-fluid is-TamanoContainerIntInd">
+            <br><br>
+            <h3 class="text-lg-left" style="color: #fff; font-weight:bolder;">Noticias Interesantes XD</h3>
+            <br>
+        </div>
+        <center>
+            <div class="table-responsive">
+                <table class="is-TamanoContainerIntInd">
+                    <tbody>
+                        <tr>
+                            {% for new in new_list %}
+                            <td>
+                                <div class="card img-fluid is-TamanoContainerCard">
+                                    <img class="card-img-top" src="{{new.image}}" alt="Card image" style="width:100%">
+                                    <div class="card-img-overlay is-FontCard02XD">
+                                        <h4 class="card-title">{{new.title}}</h4>
+                                        <center><a href="#demo1_{{new.pk}}" class="btn btn-primary" data-toggle="collapse">Ver Descripcion.</a></center>
+                                        <div id="demo1_{{new.pk}}" class="collapse">
+                                            {{novel.description}}
+                                        </div>
+                                        <div class="footer">
+                                            <a href="#"><input type="button" class="is-Button-LeerXD" value="Leele Mas XD"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                            </td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </center>
+    </div>
+</section>

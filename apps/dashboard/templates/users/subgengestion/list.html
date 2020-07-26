@@ -30,15 +30,10 @@
                         <tbody class="is-Letra02">
                             {% for subgen in subgen_list %}
                             <tr>
-                                <td>{{user.email}}</td>
-                                <td>{{user.rol_user}}</td>
+                                <td>{{subgen.name}}</td>
+                                <td>{{subgen.genre}}</td>
                                 <td>
-                                    <a href="">
-                                        <button class="is-Button-View">
-                                            <span class="fa fa-book"></span>
-                                        </button>
-                                    </a>
-                                    <a href="{% url 'dashboard:update_register' user.pk %}">
+                                    <a href="{% url 'dashboard:update_subgen' subgen.pk %}">
                                         <button class="is-Button-Mod">
                                             <span class="fa fa-gears"></span>
                                         </button>

@@ -49,7 +49,7 @@ class CreateRegister(CreateView):
 
 
 class UpdateRegister(UpdateView):
-    template_name = "user/register.html"
+    template_name = "users/usergestion/register.html"
     model = User
     form_class = RegisterForm
     success_url = reverse_lazy('dashboard:home')

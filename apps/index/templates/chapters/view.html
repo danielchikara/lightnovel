@@ -1,15 +1,33 @@
 {% extends 'layouts/index/base.html' %} {% load static %} {% block content %}
 
+<script>
+    function colorChange() {
+        var mydiv = document.getElementById("pedro");
+        var selectValue = document.getElementById("id_changeColor").value;
+        mydiv.style.backgroundColor = selectValue;
+    }
+</script>
+
 <section class="is-FontColor01">
     <br><br>
-    <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
+    <div class="container-fluid is-TamanoContainer" id="pedro" style="color: #FFF!important;
+    background-color: #DC143B!important; border-radius: 20px;">
         <br>
-        <a href="#demo" class="btn is-Button-Camb" data-toggle="collapse">Cambia de Color de Fondo.</a>
-        <div id="demo" class="collapse is-alinea-buttons">
-            <button type="button" class="btn btn-outline-primary">Primary</button>
-            <button type="button" class="btn btn-outline-secondary">Secondary</button>
-            <button type="button" class="btn btn-outline-success">Success</button>
-            <button type="button" class="btn btn-outline-info">Info</button>
+        <div class="container-fluid is-alinea-buttons">
+            <a href="#demo" data-toggle="collapse">
+                <button class="is-Button-Camb">
+                <span class="fa fa-gears"></span>  Cambia de Color de Fondo..
+            </button>
+            </a>
+            <br>
+            <div id="demo" class="collapse input-group" style="width: 50%;">
+                <select class="form-control" id="id_changeColor" name="changeColor" onchange="colorChange()">
+                <option value="#DC143B">Original.</option>
+                <option value="#878787">Gris Claro.</option>
+                <option value="black">Negro.</option>
+                <option value="#52cbff">Azul Claro.</option>
+              </select>
+            </div>
         </div>
         <br><br>
         <div class="container-fluid is-alinea-buttons" style="width: 100%; background-color: white;">

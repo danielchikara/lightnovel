@@ -1,0 +1,38 @@
+{% extends 'layouts/index/base.html' %} {% load static %} {% block content %}
+
+<section class="is-FontColor01">
+    <br><br>
+    <div class="container-fluid is-Color01 is-TamanoContainer" style="border-radius: 20px;">
+        <br> {% for chapter in chapter_list %}
+        <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">{{chapter.novel.name}}</h3>
+        <br>
+        <h6 class="text-lg-center" style="color: #fff;">
+            {{chapter.novel.description}}
+        </h6>
+        <br> {% endfor %}
+        <br>
+        <div class="container-fluid is-TamanoContainerIntInd">
+            <center>
+                <div class="table-responsive table-striped">
+                    <table class="is-tableNov">
+                        <thead class="is-headerTableNov">
+
+                            <tr class="is-table-TamanoH">
+                                <th>Titulo.</th>
+                            </tr>
+                        </thead>
+                        <tbody class="is-Letra02">
+                            {% for chapter in chapter_list %}
+                            <tr>
+                                <td>{{chapter.name}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </center>
+            <br>
+        </div>
+    </div>
+    <br><br>
+</section>

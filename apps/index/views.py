@@ -249,12 +249,15 @@ class LoginView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
+            if request.user.rol_user.rol_user_name == "Administrador" or request.user.rol_user.rol_user_name == "Administrador Secundario":
+                return redirect('dashboard:home')
             try:
                 request.user.personal_information != None
                 pk = self.request.user.personal_information.id
                 return redirect('index:userupdate',pk)
             except:
                 return redirect('index:user')
+        print("Get")
         return super(LoginView, self).get(request, **kwargs)
 
     def post(self, request):
@@ -262,12 +265,15 @@ class LoginView(TemplateView):
         if form.is_valid():
             user = form.login(request)
             login(request, user)
+            if request.user.rol_user.rol_user_name == "Administrador" or request.user.rol_user.rol_user_name == "Administrador Secundario":
+                return redirect('dashboard:home')
             try: 
                 request.user.personal_information != None
                 
                 return redirect('index:home')
             except:
                 return redirect('index:user')
+        print("post")
         return render(request, self.template_name, {'form': form })
 
 

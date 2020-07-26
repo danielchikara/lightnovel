@@ -15,20 +15,21 @@ from skimage.io import imread
 import numpy
 import cv2
 
+@method_decorator(user_passes_test(lambda u: u.rol_user.rol_user_name == "Administrador" or u.rol_user.rol_user_name == "Administrador Secundario", login_url=reverse_lazy('index:login')), name='dispatch')
 class DashboardView(TemplateView):
     template_name = "users/index.html"
-
+@method_decorator(user_passes_test(lambda u: u.rol_user.rol_user_name == "Administrador", login_url=reverse_lazy('index:login')), name='dispatch')
 class UserGestionView(ListView):
-    template_name = "users/usergestion/list.html"
+    stemplate_name = "users/usergestion/list.html"
     model = User
     context_object_name = 'user_list'
-
+@method_decorator(user_passes_test(lambda u: u.rol_user.rol_user_name == "Administrador" or u.rol_user.rol_user_name == "Administrador Secundario", login_url=reverse_lazy('index:login')), name='dispatch')
 class NovelGestionView(ListView):
     template_name = "users/novelgestion/list.html"
     model = Novel
     context_object_name = 'novel_list'
 
-
+@method_decorator(user_passes_test(lambda u: u.rol_user.rol_user_name == "Administrador" or u.rol_user.rol_user_name == "Administrador Secundario", login_url=reverse_lazy('index:login')), name='dispatch')
 class ListChapter(ListView):
     template_name = 'users/novelgestion/view.html'
     model = Chapter 
@@ -40,14 +41,14 @@ class ListChapter(ListView):
         queryset = queryset.filter(novel=user)
         return queryset
 
-
+@method_decorator(user_passes_test(lambda u: u.rol_user.rol_user_name == "Administrador" , login_url=reverse_lazy('index:login')), name='dispatch')
 class CreateRegister(CreateView):
     template_name = "users/usergestion/register.html"
     model = User
     form_class = RegisterForm
     success_url = reverse_lazy('dashboard:home')
 
-
+@method_decorator(user_passes_test(lambda u: u.rol_user.rol_user_name == "Administrador", login_url=reverse_lazy('index:login')), name='dispatch')
 class UpdateRegister(UpdateView):
     template_name = "users/usergestion/register.html"
     model = User
@@ -59,6 +60,56 @@ def get_status(request,pk):
     instance =  Novel.objects.filter(pk=fliter)
     instance.update(status=False)
     return redirect('dashboard:home')
+
+@method_decorator(user_passes_test(lambda u: u.rol_user.rol_user_name == "Administrador", login_url=reverse_lazy('index:login')), name='dispatch')
+class CreateGenre(CreateView):
+    template_name = "users/genregestion/register.html"
+    model = Genre
+    form_class = GenreForm
+    success_url = reverse_lazy('dashboard:home')
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        instance = self.get_object()
+        context['image'] = instance.image
+        context['operation'] = 'Actualizar'
+        context['title1'] = 'Actualizacion de Datos.'
+        return context
+    
+    def form_valid(self, form):
+        image_url = self.request.FILES['image']
+        image_url = upload_image_file(image_url,'Genre/')
+        form.instance.image = image_url            
+        return super(CreateGenre, self).form_valid(form)
+@method_decorator(user_passes_test(lambda u: u.rol_user.rol_user_name == "Administrador", login_url=reverse_lazy('index:login')), name='dispatch')
+class ListGenre(ListView):
+    template_name = "users/genregestion/list.html"
+    model = Genre
+    context_object_name = 'genre_list'
+
+    
+@method_decorator(user_passes_test(lambda u: u.rol_user.rol_user_name == "Administrador", login_url=reverse_lazy('index:login')), name='dispatch')
+class UpdateGenre(UpdateView):
+    template_name = "users/genregestion/register.html"
+    model = Genre
+    form_class = GenreForm
+    success_url = reverse_lazy('dashboard:home')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        instance = self.get_object()
+        context['image'] = instance.image
+        context['operation'] = 'Actualizar'
+        context['title1'] = 'Actualizacion de Datos.'
+        return context
+
+    def form_valid(self, form):
+        if self.request.FILES.get('image', False):
+            image_url = self.request.FILES['image']
+            image_url = upload_image_file(image_url,'Genre/')
+            form.instance.image = image_url            
+        return super(CreateGenre, self).form_valid(form)
+
 
 
     

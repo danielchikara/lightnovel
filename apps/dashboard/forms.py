@@ -19,3 +19,9 @@ class RegisterForm(UserCreationForm):
             instance.save() 
         #   User.objects.create(user=instance  ) 
         return instance
+
+
+class GenreForm(forms.ModelForm):
+    class Meta:
+        model = Genre
+        exclude = ('image',)

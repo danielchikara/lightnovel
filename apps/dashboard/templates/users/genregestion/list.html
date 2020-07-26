@@ -32,7 +32,7 @@
                                 <td>{{genre.name}}</td>
                                 <td>{{genre.subgenre_novel.count}}</td>
                                 <td>
-                                    <a href="{% url 'dashboard:novel_chapter' novel.pk %}">
+                                    <a href="{% url 'dashboard:update_genre' genre.pk %}">
                                         <button class="is-Button-Mod">
                                             <span class="fa fa-gears"></span>
                                         </button>

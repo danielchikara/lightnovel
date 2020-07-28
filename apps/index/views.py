@@ -281,3 +281,8 @@ def logout_view(request):
     if request.user.is_authenticated:
         logout(request)
     return redirect('index:login')
+
+class NewList(ListView):
+    template_name = 'news/list.html'
+    model = News
+    context_object_name = 'news_list'

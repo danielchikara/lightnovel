@@ -25,3 +25,13 @@ class GenreForm(forms.ModelForm):
     class Meta:
         model = Genre
         exclude = ('image',)
+
+class SubGenreForm(forms.ModelForm):
+    class Meta: 
+        model = SubGenre
+        exclude = ('image',)
+
+class NewsForm(forms.ModelForm):
+    class Meta:
+        model = News 
+        exclude = ('image',)

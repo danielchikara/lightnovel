@@ -17,6 +17,7 @@ path('index/novel/list/', views.ListNovel.as_view(), name='novel_list'),
 path('index/chapter/create/<pk>/', views.CreateChapter.as_view(), name='chapter_create'),
 path('index/chapter/update/<pk>/', views.UpdateChapter.as_view(), name='chapter_update'),
 path('index/chapter/list/<pk>/', views.ListChapter.as_view(), name='chapter_list'),
+path('index/news/list/', views.NewList.as_view(), name='news_list'),
 
 
 ]

@@ -20,9 +20,11 @@ class DashboardView(TemplateView):
     template_name = "users/index.html"
 @method_decorator(user_passes_test(lambda u: u.rol_user.rol_user_name == "Administrador", login_url=reverse_lazy('index:login')), name='dispatch')
 class UserGestionView(ListView):
-    stemplate_name = "users/usergestion/list.html"
+    template_name = "users/usergestion/list.html"
     model = User
     context_object_name = 'user_list'
+
+
 @method_decorator(user_passes_test(lambda u: u.rol_user.rol_user_name == "Administrador" or u.rol_user.rol_user_name == "Administrador Secundario", login_url=reverse_lazy('index:login')), name='dispatch')
 class NovelGestionView(ListView):
     template_name = "users/novelgestion/list.html"
@@ -46,7 +48,8 @@ class CreateRegister(CreateView):
     template_name = "users/usergestion/register.html"
     model = User
     form_class = RegisterForm
-    success_url = reverse_lazy('dashboard:home')
+    success_url = reverse_lazy('dashboard:user_gestion')
+
 
 @method_decorator(user_passes_test(lambda u: u.rol_user.rol_user_name == "Administrador", login_url=reverse_lazy('index:login')), name='dispatch')
 class UpdateRegister(UpdateView):
@@ -70,10 +73,8 @@ class CreateGenre(CreateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        instance = self.get_object()
-        context['image'] = instance.image
-        context['operation'] = 'Actualizar'
-        context['title1'] = 'Actualizacion de Datos.'
+        context['operation'] = 'Crear'
+        context['title1'] = 'Crear  Usuarios.'
         return context
     
     def form_valid(self, form):
@@ -81,6 +82,7 @@ class CreateGenre(CreateView):
         image_url = upload_image_file(image_url,'Genre/')
         form.instance.image = image_url            
         return super(CreateGenre, self).form_valid(form)
+
 @method_decorator(user_passes_test(lambda u: u.rol_user.rol_user_name == "Administrador", login_url=reverse_lazy('index:login')), name='dispatch')
 class ListGenre(ListView):
     template_name = "users/genregestion/list.html"
@@ -112,5 +114,56 @@ class UpdateGenre(UpdateView):
 
 
 
+class CreateSubGenre(CreateView):
+    template_name = "users/subgengestion/register.html"
+    model = SubGenre
+    form_class = SubGenreForm
+    success_url = reverse_lazy('dashboard:home')
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['operation'] = 'Crear'
+        context['title1'] = 'Crear  subgenero.'
+        return context
 
+
+class UpdateGenre(UpdateView):
+    template_name = "users/subgengestion/register.html"
+    model = SubGenre
+    form_class = SubGenreForm
+    success_url = reverse_lazy('dashboard:home')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['operation'] = 'Actualizar'
+        context['title1'] = 'Actualizar  subgenero.'
+        return context
+
+class ListSubGenre(ListView):
+    template_name = "users/subgengestion/list.html"
+    model = SubGenre
+    context_object_name = 'subgen_list'
+
+class CreateNew(CreateView):
+    template_name = "users/newgestion/register.html"
+    model = News
+    form_class = NewsForm
+    success_url = reverse_lazy('dashboard:home')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['operation'] = 'Guardar Noticia'
+        context['title1'] = 'Crear  Noticia.'
+        return context
+
+    def form_valid(self, form):
+        image_url = self.request.FILES['image']
+        image_url = upload_image_file(image_url,'News/')
+        form.instance.image = image_url            
+        return super(CreateNew, self).form_valid(form)
+
+class ListNew(ListView):
+    template_name = "users/newgestion/list.html"
+    model = News
+    context_object_name = 'new_list'
+    

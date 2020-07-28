@@ -6,7 +6,7 @@
         <br>
         <h3 class="text-lg-center" style="color: #fff; font-weight:bolder;">Tus Novelas.</h3>
         <br>
-        <a href="{% url 'dashboard:new_create' %}">
+        <a href="{% url 'dashboard:create_New' %}">
             <center>
                 <button class="is-Button-CreChap">
                 <span class="fa fa-gears"></span>  Crear Nueva Noticia.
@@ -23,7 +23,7 @@
                             <tr class="is-table-TamanoH">
                                 <th>Titulo de la Noticia.</th>
                                 <th>Descripcion breve.</th>
-                                <th>Acciones.</th>
+                               
                             </tr>
                         </thead>
                         <tbody class="is-Letra02">
@@ -31,23 +31,7 @@
                             <tr>
                                 <td>{{new.title}}</td>
                                 <td>{{new.description}}</td>
-                                <td>
-                                    <a href="{% url 'dashboard:view_new' new.pk %}">
-                                        <button class="is-Button-View">
-                                            <span class="fa fa-book"></span>
-                                        </button>
-                                    </a>
-                                    <a href="{% url 'dashboard:new_update' novel.pk %}">
-                                        <button class="is-Button-Mod">
-                                            <span class="fa fa-gears"></span>
-                                        </button>
-                                    </a>
-                                    <a href="{% url 'index:home' %}">
-                                        <button class="is-Button-Elm">
-                                            <span class="fa fa-times"></span>
-                                        </button>
-                                    </a>
-                                </td>
+                                
                             </tr>
                             {% endfor %}
                         </tbody>

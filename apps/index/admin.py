@@ -10,4 +10,5 @@ admin.site.register(Genre)
 admin.site.register(SubGenre)
 admin.site.register(Novel)
 admin.site.register(Chapter)
+admin.site.register(News)
     

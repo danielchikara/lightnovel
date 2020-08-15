@@ -136,7 +136,7 @@ STATIC_ROOT = os.path.join(os.path.dirname(
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #firebase
-FIREBASE_SERVICE_ACCOUNT_KEY = 'light_novel/config/light-novels-cb3ec-firebase-adminsdk-qspf3-2601e664b0.json'
-STORAGE_BUCKET_NAME = 'light-novels-cb3ec.appspot.com'
-PROJECT_NAME = 'light-novels-cb3ec'
+FIREBASE_SERVICE_ACCOUNT_KEY = 'light_novel/config/ligth-novel-firebase-adminsdk-w61pv-87aac6169b.json'
+STORAGE_BUCKET_NAME = 'ligth-novel.appspot.com'
+PROJECT_NAME = 'light-novel'
 

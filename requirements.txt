@@ -1,4 +1,4 @@
-Django==3.0.3
+Django==3.0.14
 psycopg2-binary
 google-cloud-storage==1.29.0
 numpy==1.19.0
